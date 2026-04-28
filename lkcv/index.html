@@ -1,0 +1,2634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lasisi Kenny — UI/UX Designer & Frontend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #16161f;
+      --surface: #1c1c28;
+      --surface2: #22222f;
+      --accent: #f59e0b;
+      --accent2: #fb923c;
+      --purple: #a78bfa;
+      --text: #f1f0ed;
+      --muted: #8b8a9b;
+      --border: rgba(255,255,255,0.07);
+      --font-display: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE GRAIN OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    a { text-decoration: none; color: inherit; transition: color 0.25s; }
+    li { list-style: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+    /* ══════════════════════════════════════
+       NAV
+    ══════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+      height: 72px;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    nav ul {
+      display: flex;
+      gap: 36px;
+    }
+
+    nav ul a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #000 !important;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 9px 22px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .nav-cta:hover { background: var(--accent2); transform: translateY(-1px); }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 22px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      padding: 72px 80px 0;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* glow blobs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(167,139,250,0.08) 0%, transparent 70%);
+      bottom: 0; left: -100px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.25);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .accent { color: var(--accent); }
+    .hero h1 .purple { color: var(--purple); }
+
+    .hero-desc {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(245,158,11,0.3); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 28px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 48px;
+    }
+
+    .hero-stat h3 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -1px;
+    }
+
+    .hero-stat p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Photo card */
+    .hero-photo-wrap {
+      position: relative;
+    }
+
+    .hero-photo-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .hero-photo-card img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .hero-photo-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,15,0.6) 0%, transparent 50%);
+    }
+
+    .hero-float-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-tag-top {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: var(--accent);
+      color: #000;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 11px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transform: rotate(5deg);
+    }
+
+    /* ══════════════════════════════════════
+       WORKFLOW / PROCESS
+    ══════════════════════════════════════ */
+    section { padding: 80px 80px; max-width: 1300px; margin: 0 auto; }
+    section.full-bleed { max-width: none; padding: 80px 80px; }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    h2.section-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 64px;
+    }
+
+    /* Process steps */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--purple), var(--accent), transparent);
+      z-index: 0;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .process-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: var(--accent);
+      margin: 0 auto 20px;
+      transition: all 0.3s;
+    }
+
+    .process-step:hover .process-icon {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    .process-step h4 {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .process-step p {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 0 8px;
+      line-height: 1.5;
+    }
+
+    .process-arrow {
+      position: absolute;
+      top: 32px;
+      right: -14px;
+      font-size: 20px;
+      color: var(--accent);
+      z-index: 2;
+    }
+
+    /* ══════════════════════════════════════
+       SKILLS
+    ══════════════════════════════════════ */
+    .skills-wrap {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 0;
+    }
+
+    .skill-card {
+      background: var(--bg2);
+      padding: 40px 36px;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(245,158,11,0.05), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .skill-card:hover::before { opacity: 1; }
+    .skill-card:hover { border-color: rgba(245,158,11,0.3); }
+
+    .skill-icon {
+      font-size: 32px;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+
+    .skill-card h4 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .skill-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: rgba(245,158,11,0.1);
+      color: var(--accent);
+      border: 1px solid rgba(245,158,11,0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .tag.purple {
+      background: rgba(167,139,250,0.1);
+      color: var(--purple);
+      border-color: rgba(167,139,250,0.2);
+    }
+
+    /* ══════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-photo {
+      position: sticky;
+      top: 100px;
+    }
+
+    .about-img-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .about-achievements {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .achievement-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      transition: all 0.25s;
+    }
+
+    .achievement-pill:hover { border-color: rgba(245,158,11,0.4); transform: translateX(4px); }
+
+    .achievement-pill i {
+      font-size: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .achievement-pill div h5 {
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--font-display);
+    }
+
+    .achievement-pill div p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .about-content h2 { margin-bottom: 24px; }
+
+    .about-content p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .about-content p strong { color: var(--text); }
+
+    .ai-strip {
+      margin-top: 32px;
+      background: linear-gradient(135deg, rgba(167,139,250,0.08), rgba(245,158,11,0.05));
+      border: 1px solid rgba(167,139,250,0.2);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+    }
+
+    .ai-strip h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ai-strip p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .ai-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    /* ══════════════════════════════════════
+       PORTFOLIO — UI/UX
+    ══════════════════════════════════════ */
+    .portfolio-wrap {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--surface);
+      border-radius: 100px;
+      padding: 4px;
+      width: fit-content;
+      margin-bottom: 48px;
+    }
+
+    .ptab {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 9px 24px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.25s;
+      color: var(--muted);
+      border: none;
+      background: none;
+    }
+
+    .ptab.active {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .projects-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .projects-grid.two-col { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid.three-col { grid-template-columns: repeat(3, 1fr); }
+
+    /* UI/UX project cards */
+    .uiux-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .uiux-card:hover {
+      border-color: rgba(245,158,11,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+
+    .uiux-card-img {
+      width: 100%;
+      height: 220px;
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .uiux-card-img.grad1 { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); }
+    .uiux-card-img.grad2 { background: linear-gradient(135deg, #0d1b2a, #1b4332, #081c15); }
+    .uiux-card-img.grad3 { background: linear-gradient(135deg, #1a0a2e, #2d1b69, #11003d); }
+    .uiux-card-img.grad4 { background: linear-gradient(135deg, #1f0a00, #7c2d12, #1f0a00); }
+    .uiux-card-img.grad5 { background: linear-gradient(135deg, #0a0a1f, #1c1c3e, #0f0f2d); }
+    .uiux-card-img.grad6 { background: linear-gradient(135deg, #001f0a, #003d1a, #00150a); }
+
+    .uiux-card-img .mock-frame {
+      width: 80%;
+      height: 75%;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.04);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .mock-bar {
+      height: 28px;
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 6px;
+    }
+
+    .mock-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .mock-dot.r { background: #ff5f57; }
+    .mock-dot.y { background: #febc2e; }
+    .mock-dot.g { background: #28c840; }
+
+    .mock-body {
+      flex: 1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .mock-line {
+      height: 6px;
+      border-radius: 3px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .mock-line.w80 { width: 80%; }
+    .mock-line.w60 { width: 60%; }
+    .mock-line.w40 { width: 40%; }
+    .mock-line.accent { background: rgba(245,158,11,0.4); }
+
+    .uiux-card-body { padding: 24px; }
+
+    .uiux-card-body .card-type {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .uiux-card-body h4 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .uiux-card-body p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .card-footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .card-link:hover { gap: 10px; }
+
+    .no-link-badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: rgba(139,138,155,0.1);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* dev project cards — wider, horizontal layout */
+    .dev-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      transition: all 0.3s;
+    }
+
+    .dev-card:hover {
+      border-color: rgba(245,158,11,0.35);
+      transform: translateX(4px);
+    }
+
+    .dev-card-num {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .dev-card h4 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.4px;
+    }
+
+    .dev-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    .dev-card-action {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .status-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .status-badge.live { background: rgba(34,197,94,0.12); color: #4ade80; border: 1px solid rgba(34,197,94,0.2); }
+    .status-badge.wip { background: rgba(245,158,11,0.1); color: var(--accent); border: 1px solid rgba(245,158,11,0.2); }
+
+    /* ══════════════════════════════════════
+       HIRE ME
+    ══════════════════════════════════════ */
+    .hire-section {
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hire-section::before {
+      content: '';
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 65%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hire-section h2 {
+      font-size: clamp(32px, 5vw, 58px);
+      letter-spacing: -3px;
+    }
+
+    .hire-section h2 .outline-text {
+      -webkit-text-stroke: 2px var(--accent);
+      color: transparent;
+    }
+
+    .hire-sub {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 20px auto 48px;
+    }
+
+    .hire-options {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .hire-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      text-align: left;
+      width: 280px;
+      transition: all 0.3s;
+    }
+
+    .hire-card:hover {
+      border-color: rgba(245,158,11,0.4);
+      transform: translateY(-4px);
+    }
+
+    .hire-card i { font-size: 28px; color: var(--accent); margin-bottom: 14px; }
+    .hire-card h4 { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+    .hire-card p { font-size: 13px; color: var(--muted); }
+
+    .hire-big-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--accent);
+      color: #000;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 18px;
+      padding: 20px 48px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      letter-spacing: -0.3px;
+    }
+
+    .hire-big-btn:hover {
+      background: var(--accent2);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(245,158,11,0.35);
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 60px 80px 40px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand h3 span { color: var(--accent); }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col h5 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
+
+    .footer-col ul a {
+      font-size: 14px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--accent); }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--muted);
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+
+    .social-btn:hover {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-bottom p { font-size: 13px; color: var(--muted); }
+    .footer-bottom a { color: var(--accent); }
+
+    /* ══════════════════════════════════════
+       DOWNLOAD CV BUTTON (floating)
+    ══════════════════════════════════════ */
+    .download-fab {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      background: var(--accent);
+      color: #000;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 24px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 32px rgba(245,158,11,0.3);
+      transition: all 0.3s;
+      z-index: 50;
+    }
+
+    .download-fab:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(245,158,11,0.4);
+      background: var(--accent2);
+    }
+
+    /* ══════════════════════════════════════
+       MOBILE RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      nav { padding: 0 40px; }
+      nav ul { display: none; }
+      .nav-cta { display: none; }
+      .menu-btn { display: flex; }
+      section, section.full-bleed { padding: 80px 40px; }
+      .hero { padding: 72px 40px 0; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo-wrap { display: none; }
+      .process-steps { grid-template-columns: repeat(3, 1fr); }
+      .process-steps::before { display: none; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-photo { position: static; }
+      .projects-grid.two-col, .projects-grid.three-col { grid-template-columns: 1fr; }
+      footer { padding: 60px 40px 40px; }
+      .footer-top { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 24px; }
+      section, section.full-bleed { padding: 60px 24px; }
+      .hero { padding: 72px 24px 0; }
+      .hero-stats { flex-wrap: wrap; gap: 24px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      footer { padding: 40px 24px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+      .hire-options { flex-direction: column; align-items: center; }
+      .hire-card { width: 100%; max-width: 320px; }
+      .download-fab { bottom: 20px; right: 20px; padding: 12px 18px; font-size: 13px; }
+    }
+
+    /* ── Fade-in animation ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-nav.open { display: flex; animation: slideIn 0.25s ease forwards; }
+    @keyframes slideIn { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:translateY(0); } }
+
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .mobile-nav a:hover { color: var(--accent); }
+
+    .mobile-close {
+      position: absolute;
+      top: 24px; right: 24px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ── CASE STUDY MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(12px);
+      z-index: 200;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+      overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 820px;
+      padding: 48px;
+      position: relative;
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .modal-close:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+    .modal-type {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .modal-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .modal-section {
+      margin-bottom: 32px;
+    }
+    .modal-section h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-section p, .modal-section li {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .modal-section ul {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .modal-section ul li { list-style: disc; }
+    .modal-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+    .modal-phase-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .modal-phase {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      flex: 1;
+      min-width: 140px;
+    }
+    .modal-phase span {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .modal-phase p { font-size: 13px; color: var(--text); margin: 0; }
+    .modal-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 28px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s;
+      margin-top: 8px;
+    }
+    .modal-link-btn:hover { background: var(--accent2); transform: translateY(-2px); }
+    .modal-link-btn.ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .modal-link-btn.ghost:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+
+    /* ── MODAL IMAGE GALLERY ── */
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .gallery-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .gallery-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .gallery-img-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      position: relative;
+      aspect-ratio: 16/10;
+    }
+    .gallery-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+    .gallery-img-wrap img:hover { transform: scale(1.03); }
+    .gallery-img-wrap.mobile-ratio { aspect-ratio: 9/16; max-height: 280px; }
+    /* CSS placeholder mockup */
+    .css-mockup {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      gap: 6px;
+      background: var(--bg3);
+    }
+    .css-mockup .cm-bar {
+      height: 18px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .css-mockup .cm-dot { width: 5px; height: 5px; border-radius: 50%; }
+    .css-mockup .cm-dot.r { background: #ff5f57; }
+    .css-mockup .cm-dot.y { background: #febc2e; }
+    .css-mockup .cm-dot.g { background: #28c840; }
+    .css-mockup .cm-body { flex: 1; display: flex; flex-direction: column; gap: 5px; padding-top: 4px; }
+    .css-mockup .cm-line { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.08); }
+    .css-mockup .cm-line.accent { background: rgba(245,158,11,0.35); }
+    .css-mockup .cm-line.w90 { width: 90%; }
+    .css-mockup .cm-line.w70 { width: 70%; }
+    .css-mockup .cm-line.w50 { width: 50%; }
+    .css-mockup .cm-line.w30 { width: 30%; }
+    .css-mockup .cm-block {
+      border-radius: 6px;
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.15);
+      flex: 1;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+    .gallery-img-wrap .coming-soon {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .gallery-img-wrap .coming-soon i { font-size: 22px; color: var(--accent); opacity: 0.5; }
+    /* lightbox */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 12px;
+      object-fit: contain;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.8);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 40px; height: 40px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 22px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    @media (max-width: 600px) {
+      .modal-gallery { grid-template-columns: 1fr; }
+      .modal-box { padding: 28px 20px; }
+    }
+
+    /* print / PDF styles */
+    @media print {
+      .download-fab, .menu-btn, .mobile-nav, .nav-cta { display: none !important; }
+      nav { position: static; }
+      body { background: #fff; color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── FLOATING DOWNLOAD FAB ── -->
+<button class="download-fab" onclick="downloadCV()">
+  <i class='bx bx-download'></i> Download CV
+</button>
+
+<!-- ── MOBILE NAV ── -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" onclick="closeMobileNav()"><i class='bx bx-x'></i></button>
+  <a href="#hero" onclick="closeMobileNav()">Home</a>
+  <a href="#process" onclick="closeMobileNav()">Process</a>
+  <a href="#skills" onclick="closeMobileNav()">Skills</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#portfolio" onclick="closeMobileNav()">Portfolio</a>
+  <a href="#hire" onclick="closeMobileNav()">Hire Me</a>
+  <a href="mailto:lasisikenny7@icloud.com" style="color:var(--accent);">Send Email</a>
+</div>
+
+<!-- ══════════════════════════════════
+     NAV
+══════════════════════════════════ -->
+<nav>
+  <div class="nav-logo">
+    <img src="cvlogo.jpeg" alt="LK Logo" style="width:36px;height:36px;border-radius:8px;object-fit:cover;" />
+    <span style="font-family:'Inter',sans-serif; font-size:15px; font-weight:600; color:var(--text);">Lasisi Kenny</span>
+  </div>
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#hire">Hire Me</a></li>
+  </ul>
+  <button class="nav-cta" onclick="sendEmail()">Contact Me</button>
+  <button class="menu-btn" onclick="openMobileNav()"><i class='bx bx-menu'></i></button>
+</nav>
+
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+<section id="hero" class="hero" style="padding-top:72px; min-height:100vh; max-width:none;">
+  <div class="hero-inner">
+    <div class="hero-left fade-in">
+      <div class="hero-badge">
+        <div class="dot"></div>
+        Available for Work
+      </div>
+      <h1>
+        UI/UX Designer<br/>
+        &amp; <span class="accent">Frontend</span><br/>
+        <span class="purple">Developer</span>
+      </h1>
+      <p class="hero-desc">
+        I design systems that feel human, from the first wireframe to the last line of deployed code. 
+        Bridging the gap between <strong style="color:var(--text)">great design</strong> and <strong style="color:var(--text)">functional technology</strong>, built in Ibadan, Nigeria.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
+          <i class='bx bx-folder-open'></i> View My Work
+        </button>
+        <button class="btn-ghost" onclick="sendEmail()">
+          <i class='bx bx-envelope'></i> Get in Touch
+        </button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <h3>3+</h3>
+          <p>Years Experience</p>
+        </div>
+        <div class="hero-stat">
+          <h3>10+</h3>
+          <p>Projects Shipped</p>
+        </div>
+        <div class="hero-stat">
+          <h3>B.Sc</h3>
+          <p>Economics</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap fade-in" style="animation-delay:0.2s">
+      <div class="hero-photo-card">
+        <img 
+          src="test3.jpeg" 
+          alt="Lasisi Kenny — UI/UX Designer and Frontend Developer"
+          onerror="this.style.background='var(--surface)';this.style.height='520px'"
+        />
+        <div class="hero-float-badge">
+          <i class='bx bx-check-circle' style="color:var(--accent)"></i>
+          AAT Certified · ICAN
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PROCESS / WORKFLOW
+══════════════════════════════════ -->
+<section id="process" style="max-width:none; background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div style="max-width:1300px; margin:0 auto;">
+    <div class="section-tag">How I Work</div>
+    <h2 class="section-title">My Design &amp; Dev Process</h2>
+    <p class="section-sub">Every project follows a rigorous, research-driven workflow, from blank canvas to live URL.</p>
+    <div class="process-steps">
+      <div class="process-step fade-in">
+        <div class="process-icon"><i class='bx bx-search-alt-2'></i></div>
+        <h4>Research</h4>
+        <p>User interviews, competitive analysis, and data gathering to understand the problem space deeply.</p>
+      </div>
+      <div class="process-step fade-in" style="animation-delay:0.1s">
+        <div class="process-icon"><i class='bx bxs-bulb'></i></div>
+        <h4>Identify</h4>
+        <p>Define pain points, user needs, and business goals. Formulate a clear problem statement.</p>
+      </div>
+      <div class="process-step fade-in" style="animation-delay:0.2s">
+        <div class="process-icon"><i class='bx bx-layer'></i></div>
+        <h4>Design</h4>
+        <p>Wireframes, prototypes, and polished UI in Figma, tested and iterated before a single line of code.</p>
+      </div>
+      <div class="process-step fade-in" style="animation-delay:0.3s">
+        <div class="process-icon"><i class='bx bx-code-block'></i></div>
+        <h4>Develop</h4>
+        <p>Pixel-perfect implementation in VS Code, HTML, CSS, JS, React. Responsive from day one.</p>
+      </div>
+      <div class="process-step fade-in" style="animation-delay:0.4s">
+        <div class="process-icon"><i class='bx bx-rocket'></i></div>
+        <h4>Deploy</h4>
+        <p>Live on Vercel or GitHub Pages with speed insights, analytics, and continuous improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     SKILLS
+══════════════════════════════════ -->
+<div class="skills-wrap" id="skills">
+  <section style="max-width:1300px; padding-bottom:0;">
+    <div class="section-tag">Expertise</div>
+    <h2 class="section-title">My Skills</h2>
+    <p class="section-sub">A full-stack creative, I cover the entire product lifecycle from research to deployment.</p>
+  </section>
+  <div class="skills-grid" style="max-width:1300px; margin:0 auto;">
+    <div class="skill-card fade-in">
+      <div class="skill-icon"><i class='bx bx-shape-triangle'></i></div>
+      <h4>UI/UX Design</h4>
+      <p>Creating user-centred interfaces grounded in research. From wireframes to high-fidelity prototypes that convert.</p>
+      <div class="skill-tags">
+        <span class="tag">Figma</span>
+        <span class="tag">Prototyping</span>
+        <span class="tag">User Research</span>
+        <span class="tag">Design Systems</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="animation-delay:0.1s">
+      <div class="skill-icon"><i class='bx bxl-html5'></i></div>
+      <h4>Frontend Development</h4>
+      <p>Building fast, responsive, pixel-perfect interfaces using modern web technologies.</p>
+      <div class="skill-tags">
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3 / Sass</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">React</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="animation-delay:0.2s">
+      <div class="skill-icon"><i class='bx bx-palette'></i></div>
+      <h4>Visual Design</h4>
+      <p>Brand identity, creative direction, and visual storytelling across digital and print formats.</p>
+      <div class="skill-tags">
+        <span class="tag">Branding</span>
+        <span class="tag">Typography</span>
+        <span class="tag">Color Theory</span>
+        <span class="tag">Motion</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="animation-delay:0.3s">
+      <div class="skill-icon"><i class='bx bx-rocket'></i></div>
+      <h4>Deployment & Tools</h4>
+      <p>Shipping products to production with performance monitoring and CI/CD workflows.</p>
+      <div class="skill-tags">
+        <span class="tag">Vercel</span>
+        <span class="tag">GitHub Pages</span>
+        <span class="tag">VS Code</span>
+        <span class="tag">Git</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="animation-delay:0.4s">
+      <div class="skill-icon"><i class='bx bx-bar-chart-alt-2'></i></div>
+      <h4>Economics & Data</h4>
+      <p>B.Sc. Economics background, brings data-driven thinking and analytical rigour to every design decision.</p>
+      <div class="skill-tags">
+        <span class="tag">Data Analysis</span>
+        <span class="tag">Research</span>
+        <span class="tag">Econometrics</span>
+        <span class="tag">STATA</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in" style="animation-delay:0.5s">
+      <div class="skill-icon" style="color:var(--purple)"><i class='bx bx-bot'></i></div>
+      <h4>AI-Augmented Workflow</h4>
+      <p>Leveraging AI tools to research faster, iterate smarter, and ship higher quality work in less time.</p>
+      <div class="skill-tags">
+        <span class="tag purple">Claude AI</span>
+        <span class="tag purple">ChatGPT</span>
+        <span class="tag purple">Midjourney</span>
+        <span class="tag purple">Copilot</span>
+      </div>
+    </div>
+  </div>
+  <div style="padding-bottom:80px;"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     ABOUT
+══════════════════════════════════ -->
+<section id="about" style="max-width:1300px;">
+  <div class="section-tag">Who I Am</div>
+  <div class="about-grid">
+    <div class="about-photo fade-in">
+      <div class="about-img-wrap">
+        <img 
+          src="jersey.jpeg" 
+          alt="Lasisi Kenny"
+          onerror="this.style.background='var(--surface)';this.style.height='420px'"
+        />
+      </div>
+      <div class="about-achievements">
+        <div class="achievement-pill">
+          <i class='bx bx-award'></i>
+          <div>
+            <h5>AAT — (ICAN)</h5>
+            <p>Association of Accounting Technicians</p>
+          </div>
+        </div>
+        <div class="achievement-pill">
+          <i class='bx bx-book-open'></i>
+          <div>
+            <h5>B.Sc. Economics</h5>
+            <p>Adeleke University, Ede</p>
+          </div>
+        </div>
+        <div class="achievement-pill">
+          <i class='bx bx-coin-stack'></i>
+          <div>
+            <h5>Treasurer — NESAAU</h5>
+            <p>2025/2026 Session · Adeleke University</p>
+          </div>
+        </div>
+        <div class="achievement-pill">
+          <i class='bx bxl-figma'></i>
+          <div>
+            <h5>UI/UX Designer & Frontend Dev</h5>
+            <p>3+ years · Ibadan, Nigeria 🇳🇬</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-content fade-in" style="animation-delay:0.15s">
+      <div class="section-tag">About Me</div>
+      <h2 class="section-title">I don't just design.<br/>I solve problems.</h2>
+      <p>
+        Hey 👋 I'm <strong>Lasisi Kenny (LKenny)</strong> , a UI/UX Designer and Frontend Developer based in Ibadan, Nigeria. 
+        I believe the best digital products are born at the intersection of <strong>empathy</strong>, <strong>economics</strong>, and <strong>engineering</strong>.
+      </p>
+      <p>
+        My journey is unconventional in the best way: an economics graduate who fell in love with design, taught himself to code, 
+        and discovered that understanding <strong>human behaviour and market dynamics</strong> makes you a significantly better product designer. 
+        I approach every project with the mindset of both a researcher and an engineer, asking why before touching Figma, and testing 
+        thoroughly before hitting deploy.
+      </p>
+      <p>
+        From designing the NESAAU administrative platform (as its Treasurer) to building e-commerce tools, personal finance apps for 
+        Nigerian students, and creative brand experiences for music artists, I work across the full product stack. I write clean, 
+        maintainable code, produce client-ready prototypes, and can take a product from a napkin sketch to a live Vercel deployment 
+        <strong>independently</strong>.
+      </p>
+      <p>
+        I thrive in fast-moving environments, communicate clearly across disciplines, and care deeply about the people who will ultimately 
+        use what I build. If you want someone who brings both the <strong>creative vision and the technical execution</strong>, let's talk.
+      </p>
+
+      <div class="ai-strip">
+        <h4><i class='bx bx-bot'></i> AI-Augmented Designer &amp; Developer</h4>
+        <p>
+          I actively integrate AI tools into my research, design, and development workflow, not as a crutch, but as a 
+          force multiplier. From rapid prototyping prompts to debugging assistance, AI helps me ship higher-quality work faster.
+        </p>
+        <div class="ai-tools">
+          <span class="tag purple">Claude AI</span>
+          <span class="tag purple">ChatGPT</span>
+          <span class="tag purple">Midjourney</span>
+          <span class="tag purple">GitHub Copilot</span>
+          <span class="tag purple">Perplexity</span>
+          <span class="tag purple">Runway ML</span>
+          <span class="tag purple">Framer AI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     PORTFOLIO
+══════════════════════════════════ -->
+<div class="portfolio-wrap" id="portfolio">
+  <section style="max-width:1300px; padding-bottom:0;">
+    <div class="section-tag">My Work</div>
+    <h2 class="section-title">Projects &amp; Portfolio</h2>
+    <p class="section-sub">A selection of UI/UX design work and frontend builds, each solving a real problem.</p>
+
+    <!-- TABS -->
+    <div class="project-tabs" id="projectTabs">
+      <button class="ptab active" onclick="switchTab('uiux', this)">UI/UX Design</button>
+      <button class="ptab" onclick="switchTab('dev', this)">Web/App Dev</button>
+    </div>
+
+    <!-- UI/UX PROJECTS -->
+    <div id="uiuxPanel">
+      <div class="projects-grid three-col">
+
+        <div class="uiux-card fade-in" onclick="openModal('thesiswallet','uiux')" style="cursor:pointer;">
+          <div class="uiux-card-img grad1">
+            <div class="mock-frame">
+              <div class="mock-bar"><div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div></div>
+              <div class="mock-body">
+                <div class="mock-line w80 accent"></div>
+                <div class="mock-line w60"></div>
+                <div class="mock-line w40"></div>
+                <div class="mock-line w80"></div>
+                <div class="mock-line w60 accent" style="margin-top:8px; height:28px; border-radius:6px;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="uiux-card-body">
+            <div class="card-type">Mobile App Design</div>
+            <h4>ThesisWallet — Student Finance App</h4>
+            <p>A personal finance and thesis-tracking app designed for Nigerian final-year students. Features gold progress rings, a branded splash screen, and a full Help &amp; Support system. Built end-to-end in Figma and React.</p>
+            <div class="skill-tags" style="margin-bottom:16px;">
+              <span class="tag">Figma</span><span class="tag">React</span><span class="tag">User Research</span>
+            </div>
+            <div class="card-footer-row">
+              <span class="no-link-badge">Design System · In Progress</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="uiux-card fade-in" onclick="openModal('centrepoint','uiux')" style="animation-delay:0.1s; cursor:pointer;">
+          <div class="uiux-card-img grad2">
+            <div class="mock-frame">
+              <div class="mock-bar"><div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div></div>
+              <div class="mock-body">
+                <div class="mock-line w80 accent"></div>
+                <div class="mock-line w60"></div>
+                <div style="display:flex;gap:6px;margin-top:6px;">
+                  <div style="width:45%;height:40px;border-radius:6px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.25);"></div>
+                  <div style="width:45%;height:40px;border-radius:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
+                </div>
+                <div class="mock-line w40"></div>
+              </div>
+            </div>
+          </div>
+          <div class="uiux-card-body">
+            <div class="card-type">E-Commerce UX</div>
+            <h4>Centrepoint Supermarket — E-Commerce Site</h4>
+            <p>Full e-commerce experience for a local Ibadan supermarket. Cart drawer with WhatsApp order generation, delivery/pickup toggle, and time-slot booking.</p>
+            <div class="skill-tags" style="margin-bottom:16px;">
+              <span class="tag">UX Design</span><span class="tag">HTML/CSS/JS</span><span class="tag">WhatsApp API</span>
+            </div>
+            <div class="card-footer-row">
+              <span class="no-link-badge">Client Project · Private</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="uiux-card fade-in" onclick="openModal('easekid','uiux')" style="animation-delay:0.2s; cursor:pointer;">
+          <div class="uiux-card-img grad3">
+            <div class="mock-frame">
+              <div class="mock-bar"><div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div></div>
+              <div class="mock-body">
+                <div style="text-align:center;padding-top:8px;font-size:22px;">🎵</div>
+                <div class="mock-line w80 accent" style="margin:0 auto;"></div>
+                <div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:6px;">
+                  <div style="flex:1;height:24px;border-radius:4px;background:rgba(167,139,250,0.2);border:1px solid rgba(167,139,250,0.3);"></div>
+                  <div style="flex:1;height:24px;border-radius:4px;background:rgba(255,255,255,0.05);"></div>
+                  <div style="flex:1;height:24px;border-radius:4px;background:rgba(255,255,255,0.05);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="uiux-card-body">
+            <div class="card-type">Promo Visual / Creative</div>
+            <h4>EASEKID "BOP" — Artist PR Visual</h4>
+            <p>Cinematic interactive HTML promotional page for artist EASEKID. Floating frosted-glass streaming platform cards around a central artist image on a deep-navy background. Mobile responsive.</p>
+            <div class="skill-tags" style="margin-bottom:16px;">
+              <span class="tag">Creative Direction</span><span class="tag">Glassmorphism</span><span class="tag">HTML/CSS</span>
+            </div>
+            <div class="card-footer-row">
+              <span class="no-link-badge">Music Promo · Artist Work</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="uiux-card fade-in" onclick="openModal('economics','uiux')" style="animation-delay:0.3s; cursor:pointer;">
+          <div class="uiux-card-img grad5">
+            <div class="mock-frame">
+              <div class="mock-bar"><div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div></div>
+              <div class="mock-body">
+                <div class="mock-line w80 accent"></div>
+                <div class="mock-line w60"></div>
+                <div style="height:36px;border-radius:6px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.2);margin-top:8px;"></div>
+                <div class="mock-line w40"></div>
+                <div class="mock-line w80"></div>
+              </div>
+            </div>
+          </div>
+          <div class="uiux-card-body">
+            <div class="card-type">Research · Academic</div>
+            <h4>Economics Research — Food Insecurity &amp; Child Health</h4>
+            <p>Designed and built the PowerPoint presentation for "Impact of Food Insecurity on Child Health Outcomes in Nigeria (1991–2024)", dark navy and orange design system, CUSUM/CUSUMSQ stability test slides. Adeleke University.</p>
+            <div class="skill-tags" style="margin-bottom:16px;">
+              <span class="tag">Data Viz</span><span class="tag">EViews</span><span class="tag">Econometrics</span><span class="tag">Presentation Design</span>
+            </div>
+            <div class="card-footer-row">
+              <span class="no-link-badge">Academic · Adeleke University</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="uiux-card fade-in" onclick="openModal('nesaau','uiux')" style="animation-delay:0.4s; cursor:pointer;">
+          <div class="uiux-card-img grad4">
+            <div class="mock-frame">
+              <div class="mock-bar"><div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div></div>
+              <div class="mock-body">
+                <div class="mock-line w80 accent"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px;">
+                  <div style="height:32px;border-radius:4px;background:rgba(255,255,255,0.06);"></div>
+                  <div style="height:32px;border-radius:4px;background:rgba(245,158,11,0.15);"></div>
+                  <div style="height:32px;border-radius:4px;background:rgba(255,255,255,0.04);"></div>
+                  <div style="height:32px;border-radius:4px;background:rgba(255,255,255,0.06);"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="uiux-card-body">
+            <div class="card-type">Dashboard Design</div>
+            <h4>NESAAU Admin Dashboard</h4>
+            <p>Administrative tool designed for Nigerian Economics Students' Association (NESAAU) members. As Treasurer (2025/2026 session), I led both the design and implementation of this platform.</p>
+            <div class="skill-tags" style="margin-bottom:16px;">
+              <span class="tag">Dashboard</span><span class="tag">Admin UX</span><span class="tag">Figma</span>
+            </div>
+            <div class="card-footer-row">
+              <a class="card-link" href="https://nesaau.vercel.app/" target="_blank" rel="noopener">
+                View Live <i class='bx bx-arrow-back' style="transform:rotate(180deg)"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="uiux-card fade-in" onclick="openModal('studentfinance','uiux')" style="animation-delay:0.5s; cursor:pointer;">
+          <div class="uiux-card-img grad6">
+            <div class="mock-frame">
+              <div class="mock-bar"><div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div></div>
+              <div class="mock-body">
+                <div class="mock-line w80 accent"></div>
+                <div class="mock-line w60"></div>
+                <div style="margin-top:6px;height:4px;border-radius:2px;background:rgba(255,255,255,0.08);">
+                  <div style="width:65%;height:100%;background:var(--accent);border-radius:2px;"></div>
+                </div>
+                <div class="mock-line w40"></div>
+              </div>
+            </div>
+          </div>
+          <div class="uiux-card-body">
+            <div class="card-type">Fintech UX</div>
+            <h4>Nigerian Student Finance App (ThesisWallet)</h4>
+            <p>5-tab personal finance tracker with thesis milestones, wallet management, and a Pro Lab feature. Designed mobile-first for Nigerian undergraduates managing budgets during their final year.</p>
+            <div class="skill-tags" style="margin-bottom:16px;">
+              <span class="tag">Mobile UX</span><span class="tag">Fintech</span><span class="tag">React</span><span class="tag">localStorage</span>
+            </div>
+            <div class="card-footer-row">
+              <span class="no-link-badge">In Development</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DEV PROJECTS -->
+    <div id="devPanel" style="display:none;">
+      <div class="projects-grid" style="grid-template-columns:1fr;">
+
+        <div class="dev-card fade-in" onclick="openModal('nesaau_dev','dev')" style="cursor:pointer;">
+          <div>
+            <div class="dev-card-num">01 — WEB APP</div>
+            <h4>NESAAU Platform</h4>
+            <p>A professional administrative web platform for NESAAU members, designed, built, and deployed fully independently. React-based, deployed on Vercel with Speed Insights enabled.</p>
+            <div class="skill-tags">
+              <span class="tag">React</span><span class="tag">Vercel</span><span class="tag">Responsive</span>
+            </div>
+          </div>
+          <div class="dev-card-action">
+            <span class="status-badge live">● Live</span>
+            <a class="card-link" href="https://nesaau.vercel.app/" target="_blank" rel="noopener">
+              Visit <i class='bx bx-link-external'></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="dev-card fade-in" onclick="openModal('currency','dev')" style="animation-delay:0.1s; cursor:pointer;">
+          <div>
+            <div class="dev-card-num">02 — TOOL</div>
+            <h4>Currency Converter</h4>
+            <p>Real-time currency conversion web app with offline detection. Supports conversion between all major and emerging market currencies including Naira. Works seamlessly on and offline.</p>
+            <div class="skill-tags">
+              <span class="tag">HTML/CSS/JS</span><span class="tag">Exchange API</span><span class="tag">PWA</span>
+            </div>
+          </div>
+          <div class="dev-card-action">
+            <span class="status-badge live">● Live</span>
+            <a class="card-link" href="https://lasken.github.io/currency-coverter/" target="_blank" rel="noopener">
+              Visit <i class='bx bx-link-external'></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="dev-card fade-in" onclick="openModal('market','dev')" style="animation-delay:0.2s; cursor:pointer;">
+          <div>
+            <div class="dev-card-num">03 — FINTECH</div>
+            <h4>Market Insight — Nigerian Finance App</h4>
+            <p>An interactive app unlocking insights into the Nigerian market. Built to help local investors and everyday users make better financial decisions with live data and clear visualisations.</p>
+            <div class="skill-tags">
+              <span class="tag">JavaScript</span><span class="tag">Data Viz</span><span class="tag">Finance API</span>
+            </div>
+          </div>
+          <div class="dev-card-action">
+            <span class="status-badge live">● Live</span>
+            <a class="card-link" href="https://lasken.github.io/Finance/" target="_blank" rel="noopener">
+              Visit <i class='bx bx-link-external'></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="dev-card fade-in" onclick="openModal('centrepoint_dev','dev')" style="animation-delay:0.3s; cursor:pointer;">
+          <div>
+            <div class="dev-card-num">04 — E-COMMERCE</div>
+            <h4>Centrepoint Supermarket Store</h4>
+            <p>Full e-commerce site for an Ibadan supermarket — Made a user + admin website for Centrepoint supermarket. Features a cart drawer, WhatsApp order integration, delivery/pickup toggle, and time-slot selection for local delivery.</p>
+            <div class="skill-tags">
+              <span class="tag">Vanilla JS</span><span class="tag">No Backend</span><span class="tag">WhatsApp Integration</span><span class="tag">E-Commerce</span>
+            </div>
+          </div>
+          <div class="dev-card-action">
+            <span class="status-badge wip">⏳ Client Private</span>
+          </div>
+        </div>
+
+        <div class="dev-card fade-in" onclick="openModal('thesiswallet_dev','dev')" style="animation-delay:0.4s; cursor:pointer;">
+          <div>
+            <div class="dev-card-num">05 — REACT APP</div>
+            <h4>ThesisWallet — Student Finance Tracker</h4>
+            <p>React single-file component with 5 tabs: Home, Project, Wallet, Pro Lab, and Profile. Built for Nigerian final-year students tracking thesis milestones and personal budgets. Fully client-side with localStorage persistence.</p>
+            <div class="skill-tags">
+              <span class="tag">React</span><span class="tag">localStorage</span><span class="tag">Mobile-first</span>
+            </div>
+          </div>
+          <div class="dev-card-action">
+            <span class="status-badge wip">⏳ In Progress</span>
+          </div>
+        </div>
+
+        <div class="dev-card fade-in" onclick="openModal('easekid_dev','dev')" style="animation-delay:0.5s; cursor:pointer;">
+          <div>
+            <div class="dev-card-num">06 — CREATIVE</div>
+            <h4>EASEKID "BOP" — Interactive PR Visual</h4>
+            <p>Cinematic HTML promotional experience for Nigerian music artist EASEKID. Deep-blue background, frosted-glass streaming platform cards, floating artist image, and mobile-responsive layout. Creative direction end-to-end.</p>
+            <div class="skill-tags">
+              <span class="tag">HTML/CSS</span><span class="tag">Glassmorphism</span><span class="tag">Creative Direction</span>
+            </div>
+          </div>
+          <div class="dev-card-action">
+            <span class="status-badge wip">⏳ Private</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <div style="padding-bottom:80px;"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     HIRE ME
+══════════════════════════════════ -->
+<section id="hire" class="hire-section" style="max-width:none; text-align:center; padding:120px 80px;">
+  <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
+    <div class="section-tag" style="justify-content:center; display:flex;">Let's Work Together</div>
+    <h2 class="section-title" style="letter-spacing:-3px; text-align:center;">
+      Got a project?<br/>
+      Let's <span class="outline-text">build it</span> right.
+    </h2>
+    <p class="hire-sub">
+      I'm available for freelance projects, long-term collaborations, and full-time roles. 
+      Whether it's a product redesign, a new web app, or a brand from scratch, I'm ready.
+    </p>
+
+    <div class="hire-options">
+      <div class="hire-card">
+        <i class='bx bx-palette'></i>
+        <h4>UI/UX Design</h4>
+        <p>Research-backed design, Figma prototypes, and design systems built to scale.</p>
+      </div>
+      <div class="hire-card">
+        <i class='bx bx-code-alt'></i>
+        <h4>Frontend Development</h4>
+        <p>Pixel-perfect, responsive, and performant web and app interfaces.</p>
+      </div>
+      <div class="hire-card">
+        <i class='bx bx-layer'></i>
+        <h4>Full Product Build</h4>
+        <p>From Figma frames to deployed product, I handle the entire workflow solo.</p>
+      </div>
+    </div>
+
+    <button class="hire-big-btn" onclick="sendEmail()">
+      <i class='bx bx-envelope'></i> Send Me a Message
+    </button>
+
+    <div style="margin-top:32px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+      <a href="https://www.upwork.com/freelancers/~018e0b1bba90473376" target="_blank" rel="noopener" class="btn-ghost" style="font-size:14px; padding:10px 22px;">
+        <i class='bx bxl-upwork'></i> Hire on Upwork
+      </a>
+      <a href="https://www.behance.net/" target="_blank" rel="noopener" class="btn-ghost" style="font-size:14px; padding:10px 22px;">
+        <i class='bx bxl-behance'></i> View on Behance
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3 style="display:flex;align-items:center;gap:10px;"><img src="cvlogo.jpeg" alt="LK" style="width:32px;height:32px;border-radius:6px;object-fit:cover;"/> Lasisi Kenny</h3>
+      <p>UI/UX Designer and Frontend Developer based in Ibadan, Nigeria. Building human-centred products from research to deployment.</p>
+      <div class="social-row">
+        <a class="social-btn" href="https://twitter.com/lasisikenny7" target="_blank" rel="noopener" title="X / Twitter"><i class='bx bxl-twitter'></i></a>
+        <a class="social-btn" href="#" target="_blank" rel="noopener" title="Upwork"><i class='bx bxl-upwork'></i></a>
+        <a class="social-btn" href="#" target="_blank" rel="noopener" title="Behance"><i class='bx bxl-behance'></i></a>
+        <a class="social-btn" href="mailto:lasisikenny7@gmail.com" title="Email Me"><i class='bx bx-envelope'></i></a>
+        <a class="social-btn" href="https://wa.me/2348159718496" target="_blank" rel="noopener" title="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+        <a class="social-btn" href="https://www.instagram.com/lasisikenny" target="_blank" rel="noopener" title="Instagram"><i class='bx bxl-instagram'></i></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="#hero"><i class='bx bx-home-alt'></i> Home</a></li>
+        <li><a href="#process"><i class='bx bx-git-branch'></i> My Process</a></li>
+        <li><a href="#skills"><i class='bx bx-code-alt'></i> Skills</a></li>
+        <li><a href="#about"><i class='bx bx-user'></i> About</a></li>
+        <li><a href="#portfolio"><i class='bx bx-folder'></i> Portfolio</a></li>
+        <li><a href="#hire"><i class='bx bx-briefcase'></i> Hire Me</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Get In Touch</h5>
+      <ul>
+        <li><a href="mailto:lasisikenny7@gmail.com"><i class='bx bx-envelope'></i> lasisikenny7@gmail.com</a></li>
+        <li><a href="https://twitter.com/lasisikenny7" target="_blank" rel="noopener"><i class='bx bxl-twitter'></i> @lasisikenny7</a></li>
+        <li><a href="#" target="_blank" rel="noopener"><i class='bx bxl-upwork'></i> Upwork Profile</a></li>
+        <li><a href="#" target="_blank" rel="noopener"><i class='bx bxl-behance'></i> Behance Portfolio</a></li>
+        <li><a href="https://wa.me/2348159718496" target="_blank" rel="noopener"><i class='bx bxl-whatsapp'></i> WhatsApp</a></li>
+        <li><a onclick="downloadCV()" style="cursor:pointer;"><i class='bx bx-download'></i> Download CV (PDF)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Lasisi Kenny. Designed &amp; Built by <a href="#hero">LKenny</a>. All rights reserved.</p>
+    <p>Ibadan, Nigeria 🇳🇬 · Available Worldwide</p>
+  </div>
+</footer>
+
+<!-- ══════════ LIGHTBOX ══════════ -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class='bx bx-x'></i></button>
+  <img id="lightboxImg" src="" alt="Full size preview" />
+</div>
+
+<!-- ══════════ CASE STUDY MODAL ══════════ -->
+<div class="modal-overlay" id="caseModal" onclick="handleModalClick(event)">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" id="modalCloseBtn"><i class='bx bx-x'></i></button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+  /* ── Mobile nav ── */
+  function openMobileNav() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileNav() {
+    const nav = document.getElementById('mobileNav');
+    nav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelector('.mobile-close').addEventListener('click', closeMobileNav);
+  document.getElementById('mobileNav').querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMobileNav);
+  });
+
+  /* ── Email ── */
+  function sendEmail() { window.location.href = "mailto:lasisikenny7@icloud.com"; }
+
+  /* ── Modal ── */
+  const caseStudies = {
+    thesiswallet: {
+      type: 'Mobile App Design · UI/UX',
+      images: [
+        { label: 'Lo-Fi Wireframe', src: 'assets/tw-lofi.png', mobile: true },
+        { label: 'Hi-Fi Design', src: 'assets/tw-hifi.png', mobile: true },
+        { label: 'Device Mockup', src: 'assets/tw-mockup.png', mobile: true },
+        { label: 'User Flow', src: 'assets/tw-flow.png' }
+      ],
+      title: 'ThesisWallet',
+      subtitle: 'Personal finance & thesis tracker for Nigerian final-year students',
+      overview: 'Nigerian final-year students juggle academic deadlines, project funding, and daily expenses with little to no structured tool built for their context. ThesisWallet was designed to solve this, a mobile-first app combining thesis milestone tracking with personal wallet management.',
+      problem: 'No existing app addressed the dual pressure of academic project management and budget tracking specifically for Nigerian undergraduates. Students were using scattered notes, WhatsApp reminders, and mental math.',
+      solution: 'A 5-tab React app (Home, Project, Wallet, Pro Lab, Profile) with a branded splash screen, gold progress ring for thesis completion, and a Help & Support system. Fully client-side, no backend, works offline via localStorage.',
+      process: [
+        { phase: 'Research', detail: 'Interviewed final-year students at Adeleke University about financial pain points and project tracking habits.' },
+        { phase: 'Define', detail: 'Identified core needs: thesis milestone tracking, expense logging, and motivational UI to reduce anxiety.' },
+        { phase: 'Lo-Fi', detail: 'Sketched 5-tab layout on paper, mapped user flows for wallet top-up, milestone setting, and profile.' },
+        { phase: 'Hi-Fi', detail: 'Designed in Figma, dark mode, gold accents, bold progress ring as hero element.' },
+        { phase: 'Build', detail: 'Single-file React component. localStorage for persistence. Splash screen on first load.' },
+        { phase: 'Test', detail: 'Tested with 3 students. Iterated on Help & Support screen based on confusion around the Pro Lab tab.' }
+      ],
+      tools: ['Figma', 'React', 'localStorage', 'VS Code'],
+      status: 'In Development',
+      link: null
+    },
+    centrepoint: {
+      type: 'E-Commerce UX · Client Project',
+      images: [
+        { label: 'Lo-Fi Wireframe', src: 'assets/cp-lofi.png' },
+        { label: 'Hi-Fi Design', src: 'assets/cp-hifi.png' },
+        { label: 'Device Mockup', src: 'assets/cp-mockup.png' },
+        { label: 'Cart Flow', src: 'assets/cp-flow.png' }
+      ],
+      title: 'Centrepoint Supermarket',
+      subtitle: 'Local Ibadan supermarket e-commerce experience',
+      overview: 'Centrepoint Supermarket needed an online presence that let customers browse products and place orders, but had no technical infrastructure or budget for a backend. The entire solution had to live in a single HTML file.',
+      problem: 'A physical supermarket in Ibadan losing customers to competitors with online ordering. No IT team, no server, no CMS. Just a phone and WhatsApp.',
+      solution: 'A self-contained HTML/CSS/JS e-commerce site with a cart drawer, WhatsApp order generation (auto-formats cart into a WhatsApp message), delivery/pickup toggle, and time-slot selection. Product images use a lightweight PRODUCTS array.',
+      process: [
+        { phase: 'Discovery', detail: 'Visited the store, spoke with the owner, mapped the product categories and order process.' },
+        { phase: 'Define', detail: 'Core constraint: single file, no backend. WhatsApp as the order channel.' },
+        { phase: 'Lo-Fi', detail: 'Wireframed product grid, cart drawer, checkout flow on paper.' },
+        { phase: 'Hi-Fi', detail: 'Designed directly in VS Code with live preview, warm brand colours, clean card layout.' },
+        { phase: 'Build', detail: 'Vanilla HTML/CSS/JS. Named global handleImgErr() for image fallbacks. Cart persists in session.' },
+        { phase: 'Deliver', detail: 'Handed over single file to client, deployable anywhere, maintenance needed.' }
+      ],
+      tools: ['HTML', 'CSS', 'Vanilla JS', 'WhatsApp API', 'VS Code'],
+      status: 'Client Private',
+      link: null
+    },
+    easekid: {
+      type: 'Creative Direction · Music Promo',
+      images: [
+        { label: 'Concept / Lo-Fi', src: 'assets/ek-lofi.png' },
+        { label: 'Final Design', src: 'assets/ek-hifi.png' },
+        { label: 'Desktop Mockup', src: 'assets/ek-mockup.png' }
+      ],
+      title: 'EASEKID "BOP" PR Visual',
+      subtitle: 'Cinematic interactive promotional page for Nigerian artist EASEKID',
+      overview: 'EASEKID needed a visual online presence for the "BOP" release that felt premium and cinematic — something that matched the energy of the track and could be shared as a link.',
+      problem: 'Standard social media posts weren\'t cutting it. The artist needed something interactive, shareable, and visually distinctive that streaming platforms couldn\'t provide.',
+      solution: 'An interactive HTML page featuring floating frosted-glass streaming platform cards arranged around a central artist image cutout on a deep-navy cinematic background. Mobile responsive, no framework.',
+      process: [
+        { phase: 'Brief', detail: 'Discussed the mood, references, and key streaming platforms to feature with the artist.' },
+        { phase: 'Concept', detail: 'Chose glassmorphism + dark navy as the core aesthetic — premium, moody, music-forward.' },
+        { phase: 'Design', detail: 'Sketched card positions around central image. Defined blur levels, border opacity, and glow.' },
+        { phase: 'Build', detail: 'Pure HTML/CSS. CSS backdrop-filter for glass effect. Absolute positioning for floating cards.' },
+        { phase: 'Iterate', detail: 'Multiple rounds on image cutout quality, mobile centering, and card responsiveness.' }
+      ],
+      tools: ['HTML', 'CSS', 'Glassmorphism', 'Creative Direction'],
+      status: 'Artist Private',
+      link: null
+    },
+    economics: {
+      type: 'Data Visualisation · Academic',
+      images: [
+        { label: 'Slide Design', src: 'assets/ec-slide.png' },
+        { label: 'CUSUM Chart', src: 'assets/ec-chart.png' },
+        { label: 'Data Output', src: 'assets/ec-data.png' }
+      ],
+      title: 'Food Insecurity & Child Health — Research Presentation',
+      subtitle: 'B.Sc. Economics dissertation, Adeleke University (1991–2024)',
+      overview: 'Designed and built the full presentation for the final-year economics research project "Impact of Food Insecurity on Child Health Outcomes in Nigeria (1991–2024)" — including econometric results, stability tests, and policy recommendations.',
+      problem: 'Complex econometric output (CUSUM, CUSUMSQ stability tests, regression tables) needed to be communicated clearly to both academic supervisors and a general audience.',
+      solution: 'A cohesive dark navy and orange PowerPoint design system. Each slide type had a defined layout — title cards, data slides, chart slides, and conclusion frames. CUSUM/CUSUMSQ charts were formatted and embedded clearly.',
+      process: [
+        { phase: 'Data', detail: 'Ran STATA regressions, ARDL bounds tests, and CUSUM stability tests on World Bank + NBS data (1991–2024).' },
+        { phase: 'Structure', detail: 'Mapped findings into: Introduction → Literature → Methodology → Results → Conclusion.' },
+        { phase: 'Design', detail: 'Dark navy background with amber/orange accents. Consistent slide grid. Supervisor: Mr. Adediwura Olamide Michael.' },
+        { phase: 'Refine', detail: 'Added dedicated CUSUM/CUSUMSQ slide after supervisor review. Matched existing design language exactly.' }
+      ],
+      tools: ['STATA', 'PowerPoint', 'Data Visualisation', 'Econometrics'],
+      status: 'Completed · Adeleke University',
+      link: null
+    },
+    nesaau: {
+      type: 'Dashboard Design · Web App',
+      images: [
+        { label: 'Lo-Fi Wireframe', src: 'assets/ns-lofi.png' },
+        { label: 'Hi-Fi Design', src: 'assets/ns-hifi.png' },
+        { label: 'Device Mockup', src: 'assets/ns-mockup.png' }
+      ],
+      title: 'NESAAU Platform',
+      subtitle: 'Administrative tool for the Nigerian Economics Students\' Association, Adeleke University',
+      overview: 'As Treasurer of NESAAU (2025/2026 session), I identified the need for a centralised platform to manage membership, announcements, and administrative records for the association.',
+      problem: 'All association communication and record-keeping happened via WhatsApp groups — disorganised, hard to archive, and inaccessible to new members.',
+      solution: 'A web platform with a clean dashboard interface, deployed on Vercel. Designed for NESAAU members and executives to manage information in one place.',
+      process: [
+        { phase: 'Identify', detail: 'As Treasurer, directly experienced the problem of disorganised financial records and member communication.' },
+        { phase: 'Plan', detail: 'Mapped required features: announcements, member directory, about section.' },
+        { phase: 'Design', detail: 'Clean, professional UI with association colours. Responsive across devices.' },
+        { phase: 'Build', detail: 'React-based, deployed to Vercel. Speed Insights enabled for performance monitoring.' }
+      ],
+      tools: ['React', 'Vercel', 'Figma', 'Speed Insights'],
+      status: 'Live',
+      link: 'https://nesaau.vercel.app/'
+    },
+    studentfinance: {
+      type: 'Fintech UX · Mobile',
+      images: [
+        { label: 'Lo-Fi Wireframe', src: 'assets/sf-lofi.png', mobile: true },
+        { label: 'Hi-Fi Design', src: 'assets/sf-hifi.png', mobile: true },
+        { label: 'Device Mockup', src: 'assets/sf-mockup.png', mobile: true }
+      ],
+      title: 'Nigerian Student Finance App',
+      subtitle: 'Mobile-first budgeting tool for Nigerian undergraduates',
+      overview: 'A deeper look at the UX decisions behind the ThesisWallet finance module — focused specifically on how Nigerian students think about money, airtime, transport, and food budgeting within a ₦-denominated context.',
+      problem: 'Global finance apps use dollar-centric UX patterns that don\'t map to how Nigerian students spend — airtime, transport, foodstuff markets, and informal transfers.',
+      solution: 'Naira-first UI, category presets (Airtime, Food, Transport, Tithe, Savings), and a simple wallet top-up flow designed around mobile money and bank transfers common in Nigeria.',
+      process: [
+        { phase: 'Research', detail: 'Surveyed 8 students on spending categories, frequency, and current tracking methods (most used notes or nothing).' },
+        { phase: 'Define', detail: 'Core categories: Airtime, Food, Transport, Savings, Miscellaneous. ₦ as default.' },
+        { phase: 'Lo-Fi', detail: 'Paper sketches of wallet tab, add-expense sheet, and category picker.' },
+        { phase: 'Hi-Fi', detail: 'Figma, dark mode, gold category icons, clean list view for transactions.' },
+        { phase: 'Build', detail: 'Implemented as the Wallet tab inside ThesisWallet React app.' }
+      ],
+      tools: ['Figma', 'React', 'User Research', 'Mobile UX'],
+      status: 'In Development',
+      link: null
+    }
+  };
+
+  const devStudies = {
+    nesaau_dev: {
+      type: 'Web App · React',
+      images: [
+        { label: 'Lo-Fi Wireframe', src: 'assets/ns-lofi.png' },
+        { label: 'Live Screenshot', src: 'assets/ns-hifi.png' },
+        { label: 'Device Mockup', src: 'assets/ns-mockup.png' }
+      ],
+      title: 'NESAAU Platform',
+      subtitle: 'From WhatsApp chaos to a live administrative platform',
+      overview: 'As NESAAU Treasurer, I lived the problem — managing association records on WhatsApp was messy, unprofessional, and losing institutional memory every year. I decided to build the solution myself.',
+      problem: 'No central platform. Announcements got buried in group chats. New executives had no handover documentation. Financial records existed only in DMs.',
+      solution: 'A React web app deployed on Vercel. Clean interface for announcements, member info, and association structure. Accessible via URL — no app install needed.',
+      process: [
+        { phase: 'Problem', detail: 'Identified pain as an insider. Consulted fellow executives on what they needed most.' },
+        { phase: 'Design', detail: 'Figma prototype — minimal, professional, association colours.' },
+        { phase: 'Build', detail: 'React + CSS. Component structure kept simple for easy future handover to the next exec.' },
+        { phase: 'Deploy', detail: 'Vercel with Speed Insights. Custom domain considered for future phase.' }
+      ],
+      tools: ['React', 'CSS', 'Vercel', 'Figma'],
+      link: 'https://nesaau.vercel.app/'
+    },
+    currency: {
+      type: 'Web Tool · Vanilla JS',
+      images: [
+        { label: 'App Screenshot', src: 'assets/cv-screen.png' },
+        { label: 'Mobile View', src: 'assets/cv-mobile.png', mobile: true }
+      ],
+      title: 'Currency Converter',
+      subtitle: 'Real-time conversion with offline detection',
+      overview: 'Built out of personal frustration checking multiple apps to convert Naira to foreign currencies. Wanted a single, fast, offline-aware tool.',
+      problem: 'Existing currency apps are bloated, ad-heavy, or require accounts. Nigerian users especially need offline fallback for when data cuts out.',
+      solution: 'A lightweight HTML/CSS/JS currency converter. Detects online/offline status and alerts the user. Supports all major currencies including NGN.',
+      process: [
+        { phase: 'Idea', detail: 'Personal need — tired of slow, ad-filled currency apps.' },
+        { phase: 'API', detail: 'Integrated a free exchange rate API. Added offline detection via navigator.onLine.' },
+        { phase: 'Build', detail: 'Pure HTML/CSS/JS — no framework. Deployed to GitHub Pages.' },
+        { phase: 'Test', detail: 'Tested offline mode by disabling network in DevTools.' }
+      ],
+      tools: ['HTML', 'CSS', 'JavaScript', 'Exchange Rate API', 'GitHub Pages'],
+      link: 'https://lasken.github.io/currency-coverter/'
+    },
+    market: {
+      type: 'Fintech · Vanilla JS',
+      images: [
+        { label: 'App Screenshot', src: 'assets/mi-screen.png' },
+        { label: 'Mobile View', src: 'assets/mi-mobile.png', mobile: true }
+      ],
+      title: 'Market Insight',
+      subtitle: 'Nigerian market intelligence for everyday investors',
+      overview: 'A tool to help Nigerians make sense of local market data — designed with the average non-finance-savvy user in mind.',
+      problem: 'Nigerian financial data is scattered across government sites and paywalled platforms. Everyday people can\'t access or interpret it easily.',
+      solution: 'An interactive web app that surfaces Nigerian market insights in a clean, visual format. Built to be fast, mobile-friendly, and jargon-free.',
+      process: [
+        { phase: 'Research', detail: 'Identified public data sources: CBN, NBS, and open market APIs.' },
+        { phase: 'Design', detail: 'Clean card-based layout. Charts over tables. Plain language labels.' },
+        { phase: 'Build', detail: 'Vanilla JS with chart library. GitHub Pages deployment.' }
+      ],
+      tools: ['JavaScript', 'Chart.js', 'GitHub Pages', 'Public APIs'],
+      link: 'https://lasken.github.io/Finance/'
+    },
+    centrepoint_dev: {
+      type: 'E-Commerce · No Backend',
+      images: [
+        { label: 'Product Grid', src: 'assets/cp-hifi.png' },
+        { label: 'Cart Drawer', src: 'assets/cp-mockup.png' },
+        { label: 'WhatsApp Flow', src: 'assets/cp-flow.png' }
+      ],
+      title: 'Centrepoint Supermarket Store',
+      subtitle: 'WhatsApp-powered e-commerce in a single HTML file',
+      overview: 'A local Ibadan supermarket needed online ordering capability but had zero technical infrastructure. The entire solution had to require no server, no CMS, no maintenance.',
+      problem: 'Client had a phone, WhatsApp, and products to sell. Nothing else. Standard e-commerce platforms were too expensive and complex.',
+      solution: 'One self-contained HTML/CSS/JS file. Cart drawer accumulates items, then generates a pre-formatted WhatsApp message the customer sends directly. Delivery/pickup toggle + time-slot selection included.',
+      process: [
+        { phase: 'Constraint', detail: 'Single file. No backend. WhatsApp as checkout. Must work on low-end Android.' },
+        { phase: 'Design', detail: 'Warm, approachable UI. Large product cards. Simple add-to-cart flow.' },
+        { phase: 'Build', detail: 'PRODUCTS array kept lightweight — no base64 images. handleImgErr() for fallbacks.' },
+        { phase: 'Deliver', detail: 'Single file handed to client. Can be opened from a USB stick if needed.' }
+      ],
+      tools: ['HTML', 'CSS', 'Vanilla JS', 'WhatsApp Web API'],
+      link: null
+    },
+    thesiswallet_dev: {
+      type: 'React App · Fintech',
+      images: [
+        { label: 'Home Tab', src: 'assets/tw-hifi.png', mobile: true },
+        { label: 'Wallet Tab', src: 'assets/tw-mockup.png', mobile: true },
+        { label: 'User Flow', src: 'assets/tw-flow.png' }
+      ],
+      title: 'ThesisWallet',
+      subtitle: '5-tab finance + thesis tracker for Nigerian students',
+      overview: 'Built as a React single-file component after a Supabase integration attempt failed due to auth issues. Pivoted to a fully client-side architecture using localStorage — which actually made it faster and offline-capable.',
+      problem: 'Nigerian final-year students needed one app to track their thesis progress and budget — not two separate tools.',
+      solution: '5-tab React app: Home (dashboard overview), Project (thesis milestones), Wallet (budgeting), Pro Lab (premium features), Profile. Branded splash screen on first load. Gold progress ring as the emotional hero element.',
+      process: [
+        { phase: 'Attempt 1', detail: 'Started with Supabase backend. Hit auth configuration issues — decided not to compromise UX for backend complexity at this stage.' },
+        { phase: 'Pivot', detail: 'Moved to localStorage. Faster, offline-capable, zero auth friction for students.' },
+        { phase: 'Build', detail: 'Single-file React component. Tab navigation with state management. Splash screen with logo.' },
+        { phase: 'UI Polish', detail: 'Hero card header, gold progress ring, Help & Support screen with FAQ accordion.' }
+      ],
+      tools: ['React', 'localStorage', 'CSS', 'VS Code'],
+      link: null
+    },
+    easekid_dev: {
+      type: 'Creative Dev · HTML/CSS',
+      images: [
+        { label: 'Desktop View', src: 'assets/ek-hifi.png' },
+        { label: 'Mobile View', src: 'assets/ek-mockup.png', mobile: true }
+      ],
+      title: 'EASEKID BOP — PR Visual',
+      subtitle: 'Cinematic artist page built without a framework',
+      overview: 'Proof that you don\'t need React to ship something beautiful. A purely HTML/CSS interactive promotional experience for Nigerian music artist EASEKID.',
+      problem: 'Standard social graphics couldn\'t carry the premium, cinematic feel the artist\'s brand needed. Needed something shareable as a link.',
+      solution: 'Deep-blue background. Artist image cutout as the focal point. Frosted-glass streaming platform cards floating around it. Smooth hover states. Fully mobile responsive.',
+      process: [
+        { phase: 'Concept', detail: 'Moodboarded cinematic film posters and premium streaming visuals for reference.' },
+        { phase: 'Build', detail: 'CSS backdrop-filter for glass. Absolute positioning for card layout. No JS needed.' },
+        { phase: 'Iterate', detail: 'Multiple rounds: image cutout edges, card blur intensity, mobile centering, text hierarchy.' }
+      ],
+      tools: ['HTML', 'CSS', 'Glassmorphism', 'Creative Direction'],
+      link: null
+    }
+  };
+
+  function openModal(id, type) {
+    const data = type === 'dev' ? devStudies[id] : caseStudies[id];
+    if (!data) return;
+    document.getElementById('modalContent').innerHTML = buildModal(data, type);
+    document.getElementById('caseModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('caseModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleModalClick(e) {
+    if (e.target === document.getElementById('caseModal')) closeModal();
+  }
+
+  document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+
+/* ── Lightbox ── */
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+
+  /* ── Gallery image helper ── */
+  function galleryItem(label, src, isMobile) {
+    const ratioClass = isMobile ? 'mobile-ratio' : '';
+    if (src) {
+      return `
+        <div class="gallery-item">
+          <div class="gallery-label">${label}</div>
+          <div class="gallery-img-wrap ${ratioClass}">
+            <img src="${src}" alt="${label}" onclick="openLightbox('${src}')"
+              onerror="this.parentElement.innerHTML=cssMockup('${label}')" />
+          </div>
+        </div>`;
+    } else {
+      return `
+        <div class="gallery-item">
+          <div class="gallery-label">${label}</div>
+          <div class="gallery-img-wrap ${ratioClass}">${cssMockup(label)}</div>
+        </div>`;
+    }
+  }
+
+  function cssMockup(label) {
+    return `<div class="css-mockup">
+      <div class="cm-bar"><div class="cm-dot r"></div><div class="cm-dot y"></div><div class="cm-dot g"></div></div>
+      <div class="cm-body">
+        <div class="cm-line accent w90"></div>
+        <div class="cm-line w70"></div>
+        <div class="cm-line w50"></div>
+        <div class="cm-block">${label} — Coming Soon</div>
+      </div>
+    </div>`;
+  }
+
+  function buildModal(d, type) {
+    const phases = d.process.map(p => `
+      <div class="modal-phase">
+        <span>${p.phase}</span>
+        <p>${p.detail}</p>
+      </div>`).join('');
+
+    const toolTags = d.tools.map(t => `<span class="tag">${t}</span>`).join('');
+
+    const linkBtn = d.link
+      ? `<a class="modal-link-btn" href="${d.link}" target="_blank" rel="noopener"><i class='bx bx-link-external'></i> View Live</a>`
+      : `<span class="modal-link-btn ghost" style="cursor:default;"><i class='bx bx-lock-alt'></i> ${d.status}</span>`;
+
+    /* build gallery from d.images if present */
+    let galleryHTML = '';
+    if (d.images && d.images.length > 0) {
+      const items = d.images.map(img => galleryItem(img.label, img.src, img.mobile || false)).join('');
+      galleryHTML = `
+        <div class="modal-divider"></div>
+        <div class="modal-section">
+          <h4><i class='bx bx-image-alt'></i> Design Evidence</h4>
+          <div class="modal-gallery">${items}</div>
+        </div>`;
+    }
+
+    return `
+      <div class="modal-type">${d.type}</div>
+      <div class="modal-title">${d.title}</div>
+      <div class="modal-subtitle">${d.subtitle}</div>
+      <div class="modal-divider"></div>
+      <div class="modal-section">
+        <h4><i class='bx bx-info-circle'></i> Overview</h4>
+        <p>${d.overview}</p>
+      </div>
+      <div class="modal-section">
+        <h4><i class='bx bxs-error-circle'></i> The Problem</h4>
+        <p>${d.problem}</p>
+      </div>
+      <div class="modal-section">
+        <h4><i class='bx bx-check-shield'></i> The Solution</h4>
+        <p>${d.solution}</p>
+      </div>
+      ${galleryHTML}
+      <div class="modal-divider"></div>
+      <div class="modal-section">
+        <h4><i class='bx bx-git-branch'></i> Process</h4>
+        <div class="modal-phase-row">${phases}</div>
+      </div>
+      <div class="modal-divider"></div>
+      <div class="modal-section">
+        <h4><i class='bx bx-wrench'></i> Tools Used</h4>
+        <div class="skill-tags">${toolTags}</div>
+      </div>
+      <div style="margin-top:32px;">${linkBtn}</div>`;
+  }
+
+  /* ── Tabs ── */
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('uiuxPanel').style.display = tab === 'uiux' ? 'block' : 'none';
+    document.getElementById('devPanel').style.display = tab === 'dev' ? 'block' : 'none';
+  }
+
+  /* ── Download CV as PDF ── */
+  function downloadCV() {
+    const link = document.createElement('a');
+    link.href = 'cvpdf.pdf';
+    link.download = 'cvpdf.pdf';
+    link.click();
+  }
+
+  /* ── Fade-in on scroll ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  /* ── Nav active state ── */
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('nav ul a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+    });
+  });
+</script>
+</body>
+</html>
