@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lasisi Kenny — UI/UX Designer & Frontend Developer</title>
+  <link rel="icon" type="image/jpeg" href="cvlogo.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -1330,7 +1331,6 @@
     }
     .gallery-img-wrap img:hover { transform: scale(1.03); }
     .gallery-img-wrap.mobile-ratio { aspect-ratio: 9/16; max-height: 280px; }
-    /* CSS placeholder mockup */
     .css-mockup {
       width: 100%;
       height: 100%;
@@ -1446,6 +1446,7 @@
   <a href="#skills" onclick="closeMobileNav()">Skills</a>
   <a href="#about" onclick="closeMobileNav()">About</a>
   <a href="#portfolio" onclick="closeMobileNav()">Portfolio</a>
+  <a href="#consulting" onclick="closeMobileNav()">Consulting</a>
   <a href="#hire" onclick="closeMobileNav()">Hire Me</a>
   <a href="mailto:lasisikenny7@icloud.com" style="color:var(--accent);">Send Email</a>
 </div>
@@ -1461,6 +1462,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#portfolio">Work</a></li>
+    <li><a href="#consulting">Consulting</a></li>
     <li><a href="#hire">Hire Me</a></li>
   </ul>
   <button class="nav-cta" onclick="sendEmail()">Contact Me</button>
@@ -1735,6 +1737,44 @@
     <div id="uiuxPanel">
       <div class="projects-grid three-col">
 
+        <div class="uiux-card fade-in" onclick="openModal('nesaau','uiux')" style="animation-delay:0.4s; cursor:pointer;">
+          <div class="uiux-card-img grad4" style="padding:0;">
+            <img src="Screenshot 2026-05-04 215907.png" alt="NESAAU Dashboard" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="uiux-card-body">
+            <div class="card-type">Dashboard Design</div>
+            <h4>NESAAU Admin Dashboard</h4>
+            <p>Administrative tool designed for Nigerian Economics Students' Association (NESAAU) members. As Treasurer (2025/2026 session), I led both the design and implementation of this platform.</p>
+            <div class="skill-tags" style="margin-bottom:16px;">
+              <span class="tag">Dashboard</span><span class="tag">Admin UX</span><span class="tag">Figma</span>
+            </div>
+            <div class="card-footer-row">
+              <a class="card-link" href="https://nesaau.vercel.app/" target="_blank" rel="noopener">
+                View Live <i class='bx bx-arrow-back' style="transform:rotate(180deg)"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="uiux-card fade-in" onclick="openModal('easekid','uiux')" style="animation-delay:0.2s; cursor:pointer;">
+          <div class="uiux-card-img grad3" style="padding:0;">
+            <img src="bopppp(1).jpeg" alt="EASEKID BOP" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+          </div>
+          <div class="uiux-card-body">
+            <div class="card-type">Promo Visual / Creative</div>
+            <h4>EASEKID "BOP" — Artist PR Visual</h4>
+            <p>Cinematic interactive HTML promotional page for artist EASEKID. Floating frosted-glass streaming platform cards around a central artist image on a deep-navy background. Mobile responsive.</p>
+            <div class="skill-tags" style="margin-bottom:16px;">
+              <span class="tag">Creative Direction</span><span class="tag">Glassmorphism</span><span class="tag">HTML/CSS</span>
+            </div>
+            <div class="card-footer-row">
+              <a class="card-link" href="https://bop-snowy.vercel.app/" target="_blank" rel="noopener">
+                View Live <i class='bx bx-arrow-back' style="transform:rotate(180deg)"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div class="uiux-card fade-in" onclick="openModal('thesiswallet','uiux')" style="cursor:pointer;">
           <div class="uiux-card-img grad1">
             <div class="mock-frame">
@@ -1785,81 +1825,6 @@
             </div>
             <div class="card-footer-row">
               <span class="no-link-badge">Client Project · Private</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="uiux-card fade-in" onclick="openModal('easekid','uiux')" style="animation-delay:0.2s; cursor:pointer;">
-          <div class="uiux-card-img grad3" style="padding:0;">
-            <img src="bopppp.jpeg" alt="EASEKID BOP" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
-          </div>
-          <div class="uiux-card-body">
-            <div class="card-type">Promo Visual / Creative</div>
-            <h4>EASEKID "BOP" — Artist PR Visual</h4>
-            <p>Cinematic interactive HTML promotional page for artist EASEKID. Floating frosted-glass streaming platform cards around a central artist image on a deep-navy background. Mobile responsive.</p>
-            <div class="skill-tags" style="margin-bottom:16px;">
-              <span class="tag">Creative Direction</span><span class="tag">Glassmorphism</span><span class="tag">HTML/CSS</span>
-            </div>
-            <div class="card-footer-row">
-              <a class="card-link" href="https://bop-snowy.vercel.app/" target="_blank" rel="noopener">
-                View Live <i class='bx bx-arrow-back' style="transform:rotate(180deg)"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="uiux-card fade-in" onclick="openModal('economics','uiux')" style="animation-delay:0.3s; cursor:pointer;">
-          <div class="uiux-card-img grad5">
-            <div class="mock-frame">
-              <div class="mock-bar"><div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div></div>
-              <div class="mock-body">
-                <div class="mock-line w80 accent"></div>
-                <div class="mock-line w60"></div>
-                <div style="height:36px;border-radius:6px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.2);margin-top:8px;"></div>
-                <div class="mock-line w40"></div>
-                <div class="mock-line w80"></div>
-              </div>
-            </div>
-          </div>
-          <div class="uiux-card-body">
-            <div class="card-type">Research · Academic</div>
-            <h4>Economics Research — Food Insecurity &amp; Child Health</h4>
-            <p>Designed and built the PowerPoint presentation for "Impact of Food Insecurity on Child Health Outcomes in Nigeria (1991–2024)", dark navy and orange design system, CUSUM/CUSUMSQ stability test slides. Adeleke University.</p>
-            <div class="skill-tags" style="margin-bottom:16px;">
-              <span class="tag">Data Viz</span><span class="tag">EViews</span><span class="tag">Econometrics</span><span class="tag">Presentation Design</span>
-            </div>
-            <div class="card-footer-row">
-              <span class="no-link-badge">Academic · Adeleke University</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="uiux-card fade-in" onclick="openModal('nesaau','uiux')" style="animation-delay:0.4s; cursor:pointer;">
-          <div class="uiux-card-img grad4">
-            <div class="mock-frame">
-              <div class="mock-bar"><div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div></div>
-              <div class="mock-body">
-                <div class="mock-line w80 accent"></div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:8px;">
-                  <div style="height:32px;border-radius:4px;background:rgba(255,255,255,0.06);"></div>
-                  <div style="height:32px;border-radius:4px;background:rgba(245,158,11,0.15);"></div>
-                  <div style="height:32px;border-radius:4px;background:rgba(255,255,255,0.04);"></div>
-                  <div style="height:32px;border-radius:4px;background:rgba(255,255,255,0.06);"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="uiux-card-body">
-            <div class="card-type">Dashboard Design</div>
-            <h4>NESAAU Admin Dashboard</h4>
-            <p>Administrative tool designed for Nigerian Economics Students' Association (NESAAU) members. As Treasurer (2025/2026 session), I led both the design and implementation of this platform.</p>
-            <div class="skill-tags" style="margin-bottom:16px;">
-              <span class="tag">Dashboard</span><span class="tag">Admin UX</span><span class="tag">Figma</span>
-            </div>
-            <div class="card-footer-row">
-              <a class="card-link" href="https://nesaau.vercel.app/" target="_blank" rel="noopener">
-                View Live <i class='bx bx-arrow-back' style="transform:rotate(180deg)"></i>
-              </a>
             </div>
           </div>
         </div>
@@ -1986,7 +1951,7 @@
             </div>
           </div>
           <div class="dev-card-action">
-            <span class="status-badge wip">● Live</span>
+            <span class="status-badge wip">⏳ Private</span>
           </div>
         </div>
 
@@ -1996,6 +1961,99 @@
   </section>
   <div style="padding-bottom:80px;"></div>
 </div>
+
+<section id="consulting" style="max-width:none; background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div style="max-width:1300px; margin:0 auto;">
+    <div class="section-tag">Other Work</div>
+    <h2 class="section-title">Operations &amp; Finance Consulting</h2>
+    <p class="section-sub">Beyond design and code — applying economics and analytical thinking to real business problems.</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+
+      <div class="dev-card fade-in" onclick="openConsultModal()" style="cursor:pointer; grid-column:1/-1;">
+        <div>
+          <div class="dev-card-num">FINANCE · OPERATIONS · STRATEGY</div>
+          <h4>Logistics Route Costing — Transport Pricing Strategy</h4>
+          <p>Developed a full unit-economic breakdown and competitive pricing strategy for a logistics operation, determining optimal transport rates to undercut an incumbent transporter while maintaining fair driver wages and operator margins. Delivered as a CFO-level intelligence report with 4 pricing options, negotiation scripts, and an implementation roadmap.</p>
+          <div class="skill-tags" style="margin-top:12px;">
+            <span class="tag">Unit Economics</span>
+            <span class="tag">Cost Analysis</span>
+            <span class="tag">Pricing Strategy</span>
+            <span class="tag">Logistics</span>
+            <span class="tag">B.Sc. Economics</span>
+          </div>
+          <div style="margin-top:16px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+            <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 20px; text-align:center;">
+              <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--accent);">₦8,000</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">Incumbent Rate</div>
+            </div>
+            <div style="font-size:20px; color:var(--muted);">→</div>
+            <div style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.2); border-radius:10px; padding:14px 20px; text-align:center;">
+              <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#4ade80;">₦5,500</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">Recommended Rate</div>
+            </div>
+            <div style="background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); border-radius:10px; padding:14px 20px; text-align:center;">
+              <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--accent);">31%</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">Cost Reduction</div>
+            </div>
+            <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 20px; text-align:center;">
+              <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--purple);">4</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">Pricing Options</div>
+            </div>
+          </div>
+        </div>
+        <div class="dev-card-action">
+          <span class="status-badge live">● Delivered</span>
+          <span class="card-link" style="color:var(--accent); font-size:13px; font-weight:600; display:flex; align-items:center; gap:6px;">
+            View Case Study <i class='bx bx-chevron-right'></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="dev-card fade-in" onclick="openResearchModal()" style="cursor:pointer; grid-column:1/-1; margin-top:0;">
+        <div>
+          <div class="dev-card-num">ECONOMICS · RESEARCH · POLICY</div>
+          <h4>Impact of Food Insecurity on Child Health Outcomes in Nigeria (1991–2024)</h4>
+          <p>Final year B.Sc. Economics dissertation, Adeleke University. A long-run time-series study examining how food production dynamics and food insecurity influence child health outcomes, infant mortality, female school enrolment, literacy, fertility, and urbanisation, across 34 years of Nigerian national data.</p>
+          <div class="skill-tags" style="margin-top:12px;">
+            <span class="tag">ARDL Modelling</span>
+            <span class="tag">STATA</span>
+            <span class="tag">Econometrics</span>
+            <span class="tag">Time-Series Analysis</span>
+            <span class="tag">World Bank Data</span>
+            <span class="tag">Policy Research</span>
+          </div>
+          <div style="margin-top:16px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+            <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 20px; text-align:center;">
+              <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--accent);">34</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">Years of Data</div>
+            </div>
+            <div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 20px; text-align:center;">
+              <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--purple);">5</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">Child Health Indicators</div>
+            </div>
+            <div style="background:rgba(34,197,94,0.08); border:1px solid rgba(34,197,94,0.2); border-radius:10px; padding:14px 20px; text-align:center;">
+              <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#4ade80;">ARDL</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">Estimation Method</div>
+            </div>
+            <div style="background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); border-radius:10px; padding:14px 20px; text-align:center;">
+              <div style="font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:var(--accent);">B.Sc.</div>
+              <div style="font-size:11px; color:var(--muted); margin-top:2px;">Adeleke University</div>
+            </div>
+          </div>
+        </div>
+        <div class="dev-card-action">
+          <span class="status-badge live">● Completed</span>
+          <span class="card-link" style="color:var(--accent); font-size:13px; font-weight:600; display:flex; align-items:center; gap:6px;">
+            View Research <i class='bx bx-chevron-right'></i>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 <section id="hire" class="hire-section" style="max-width:none; text-align:center; padding:120px 80px;">
   <div style="max-width:1300px; margin:0 auto; position:relative; z-index:1;">
@@ -2035,7 +2093,7 @@
       <a href="https://www.upwork.com/freelancers/~018e0b1bba90473376" target="_blank" rel="noopener" class="btn-ghost" style="font-size:14px; padding:10px 22px;">
         <i class='bx bxl-upwork'></i> Hire on Upwork
       </a>
-      <a href="https://www.behance.net/" target="_blank" rel="noopener" class="btn-ghost" style="font-size:14px; padding:10px 22px;">
+      <a href="#" target="_blank" rel="noopener" class="btn-ghost" style="font-size:14px; padding:10px 22px;">
         <i class='bx bxl-behance'></i> View on Behance
       </a>
     </div>
@@ -2065,6 +2123,7 @@
         <li><a href="#skills"><i class='bx bx-code-alt'></i> Skills</a></li>
         <li><a href="#about"><i class='bx bx-user'></i> About</a></li>
         <li><a href="#portfolio"><i class='bx bx-folder'></i> Portfolio</a></li>
+        <li><a href="#consulting"><i class='bx bx-line-chart'></i> Consulting</a></li>
         <li><a href="#hire"><i class='bx bx-briefcase'></i> Hire Me</a></li>
       </ul>
     </div>
@@ -2117,6 +2176,184 @@
   });
 
   function sendEmail() { window.location.href = "mailto:lasisikenny7@icloud.com"; }
+
+  function openResearchModal() {
+    document.getElementById('modalContent').innerHTML = `
+      <div class="modal-type">B.Sc. Economics Dissertation · Adeleke University · 2025</div>
+      <div class="modal-title">Impact of Food Insecurity on Child Health Outcomes in Nigeria</div>
+      <div class="modal-subtitle">A 34-year time-series analysis (1991–2024) using ARDL modelling, examining how food production dynamics shape infant mortality, literacy, fertility, urbanisation and female school enrolment in Nigeria.</div>
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-info-circle'></i> Overview</h4>
+        <p>This final-year dissertation examines the long-run relationship between food insecurity, proxied by the Food Production Index (FPI) and Prevalence of Severe Food Insecurity (PSFI), and five child health outcome indicators in Nigeria. Using World Bank and FAO national data spanning 1991–2024, the study applies the Autoregressive Distributed Lag (ARDL) bounds testing approach to estimate both short-run and long-run effects.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4><i class='bx bxs-error-circle'></i> The Problem</h4>
+        <p>Despite decades of agricultural programmes and health interventions, Nigeria's under-five mortality rate stood at 104.9 per 1,000 live births in 2023, and 22.6% of the population experienced moderate to severe food insecurity in 2022. Existing research treated food and health as separate policy domains, and most studies were cross-sectional, missing the long-run structural dynamics between food supply and child wellbeing.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-check-shield'></i> Research Objectives</h4>
+        <ul>
+          <li>Analyse trends in food insecurity and child health outcomes in Nigeria from 1991 to 2024</li>
+          <li>Investigate the long-run and short-run effect of food insecurity on child health outcomes using ARDL</li>
+          <li>Provide evidence-based policy recommendations linking agricultural productivity to child wellbeing</li>
+        </ul>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-calculator'></i> Key Variables</h4>
+        <div class="modal-phase-row">
+          <div class="modal-phase"><span>Dependent Variable</span><p>Infant Mortality Rate (per 1,000 live births) — IMRT_CH</p></div>
+          <div class="modal-phase"><span>Food Production Index</span><p>FPI (2014–2016 = 100) — proxy for domestic food supply conditions</p></div>
+          <div class="modal-phase"><span>Female School Enrolment</span><p>Primary gross enrolment rate — proxy for maternal human capital</p></div>
+          <div class="modal-phase"><span>Youth Literacy Rate</span><p>% of population aged 15–24 — proxy for health literacy and awareness</p></div>
+          <div class="modal-phase"><span>Population & Urbanisation</span><p>Population (millions) and annual urban growth rate — structural demographic controls</p></div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-git-branch'></i> Methodology & Process</h4>
+        <div class="modal-phase-row">
+          <div class="modal-phase"><span>Theoretical Foundation</span><p>Grossman's Health Capital Theory (1972) and Maslow's Hierarchy of Needs (1943) — food as the prerequisite for all human development.</p></div>
+          <div class="modal-phase"><span>Unit Root Testing</span><p>Augmented Dickey-Fuller (ADF) test applied to confirm variables are I(0) or I(1) — no I(2) variables, validating ARDL use.</p></div>
+          <div class="modal-phase"><span>ARDL Bounds Test</span><p>Tested for cointegration between infant mortality and food production, enrolment, literacy, population, and urbanisation across the 34-year period.</p></div>
+          <div class="modal-phase"><span>Short & Long-Run</span><p>Error Correction Model (ECM) estimated to capture both immediate and structural long-run adjustment paths between food insecurity and child health.</p></div>
+          <div class="modal-phase"><span>Stability Tests</span><p>CUSUM and CUSUMSQ stability tests applied to verify parameter stability across the sample period.</p></div>
+          <div class="modal-phase"><span>Data Sources</span><p>World Bank Open Data, FAO FAOSTAT, Nigerian National Bureau of Statistics (NBS) — 1991 to 2024.</p></div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-bulb'></i> A Priori Expectations</h4>
+        <ul>
+          <li>Higher FPI → lower infant mortality (β₁ &lt; 0): more food production improves nutritional intake and child survival</li>
+          <li>Higher female enrolment → lower infant mortality (β₂ &lt; 0): educated mothers adopt better healthcare and feeding practices</li>
+          <li>Higher youth literacy → lower infant mortality (β₃ &lt; 0): literacy improves health awareness, hygiene and treatment-seeking</li>
+          <li>Higher urbanisation → lower infant mortality (β₅ &lt; 0): urban areas offer better access to health facilities and food markets</li>
+        </ul>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-book-open'></i> Literature Gap Addressed</h4>
+        <p>Most existing Nigerian studies are cross-sectional or micro-level, covering limited time periods. This study fills the gap by using 34 years of macro-level national time-series data and integrating food production dynamics with structural sociodemographic child health indicators, female enrolment, fertility, urbanisation and literacy, within a single ARDL framework.</p>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-wrench'></i> Skills & Tools Applied</h4>
+        <div class="skill-tags">
+          <span class="tag">STATA</span>
+          <span class="tag">ARDL Modelling</span>
+          <span class="tag">ADF Unit Root Tests</span>
+          <span class="tag">CUSUM Stability Tests</span>
+          <span class="tag">Error Correction Model</span>
+          <span class="tag">Econometrics</span>
+          <span class="tag">World Bank Data</span>
+          <span class="tag">FAO FAOSTAT</span>
+          <span class="tag">Academic Research Writing</span>
+          <span class="tag">B.Sc. Economics</span>
+        </div>
+      </div>
+
+      <div style="margin-top:32px; display:flex; gap:12px; flex-wrap:wrap;">
+        <span class="modal-link-btn ghost" style="cursor:default;"><i class='bx bx-university'></i> Adeleke University · Final Year Project</span>
+      </div>`;
+    document.getElementById('caseModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openConsultModal() {
+    document.getElementById('modalContent').innerHTML = `
+      <div class="modal-type">Operations & Finance Consulting · Logistics</div>
+      <div class="modal-title">Transport Route Costing & Pricing Strategy</div>
+      <div class="modal-subtitle">Full unit-economic breakdown — Quantum to Omilayo, Ibadan. 10 km round-trip, 74.5 kg payload.</div>
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-info-circle'></i> Overview</h4>
+        <p>Developed a CFO-level competitive pricing intelligence report for a logistics operation transporting film rolls between two locations in Ibadan. The goal was to determine a mathematically defensible rate that undercuts the incumbent transporter (₦8,000/trip) while keeping operations profitable and driver wages fair.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4><i class='bx bxs-error-circle'></i> The Problem</h4>
+        <p>The client was paying ₦8,000 per trip to an incumbent transporter, a perception-based, not cost-based, price. The driver was exploiting three psychological traps: the daily target trap, uncertainty premium, and information asymmetry. No one had run the actual numbers.</p>
+      </div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-check-shield'></i> My Approach</h4>
+        <p>Applied unit economics methodology, tracing every cost component to a verified source. Calculated adjusted fuel efficiency (8 km/L field rate after payload, stop-start, and traffic penalties), maintenance cost per km, driver market wages, and a 15% Nigerian road risk premium. Built 4 distinct pricing options for different strategic goals.</p>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-calculator'></i> Key Numbers</h4>
+        <div class="modal-phase-row">
+          <div class="modal-phase"><span>Base Cost Floor</span><p>₦2,500 (excl. labor) — the absolute minimum before paying any driver</p></div>
+          <div class="modal-phase"><span>Recommended Rate</span><p>₦5,500/trip — 31.3% below incumbent, 10% operator margin, fair driver wage</p></div>
+          <div class="modal-phase"><span>Monthly Saving</span><p>₦50,000 at 20 trips/month vs. incumbent rate</p></div>
+          <div class="modal-phase"><span>Fuel Control</span><p>Voucher system capped at 1.3L (₦1,690) — eliminates fuel siphoning risk</p></div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-git-branch'></i> The 4 Pricing Options</h4>
+        <div class="modal-phase-row">
+          <div class="modal-phase"><span>Option 1 — Aggressive Undercut</span><p>₦4,800 · 40% below incumbent · Quick market entry play</p></div>
+          <div class="modal-phase"><span>Option 2 — Balanced Rate ★</span><p>₦5,500 · Recommended · Sustainable, fair driver wage, 10% margin</p></div>
+          <div class="modal-phase"><span>Option 3 — Volume Contract</span><p>₦5,000 · 10+ trips/month · Retainer model, locks in client</p></div>
+          <div class="modal-phase"><span>Option 4 — Premium Partnership</span><p>₦6,200 · Dedicated driver, WhatsApp confirmation, tracked delivery</p></div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-git-branch'></i> Process</h4>
+        <div class="modal-phase-row">
+          <div class="modal-phase"><span>Data Gathering</span><p>Sourced 8 verified inputs: NNPC pump price, NATA maintenance rates, NLC Oyo State wage benchmarks, Google Maps route verification.</p></div>
+          <div class="modal-phase"><span>Cost Modelling</span><p>Built 5 sequential formulas, fuel efficiency derivation, fuel cost, maintenance, technical subtotal, risk buffer.</p></div>
+          <div class="modal-phase"><span>Scenario Building</span><p>Developed 4 options from the same cost floor, each with different labor models, margin structures, and strategic positioning.</p></div>
+          <div class="modal-phase"><span>Delivery</span><p>Produced a full CFO intelligence report with negotiation scripts, comparison tables, fuel voucher strategy, and a 4-phase implementation roadmap.</p></div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section">
+        <h4><i class='bx bx-wrench'></i> Skills Applied</h4>
+        <div class="skill-tags">
+          <span class="tag">Unit Economics</span>
+          <span class="tag">Cost-Benefit Analysis</span>
+          <span class="tag">Pricing Strategy</span>
+          <span class="tag">Logistics Operations</span>
+          <span class="tag">Financial Modelling</span>
+          <span class="tag">Negotiation Frameworks</span>
+          <span class="tag">B.Sc. Economics</span>
+          <span class="tag">AAT · ATSWA (ICAN)</span>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;">
+        <span class="modal-link-btn ghost" style="cursor:default;"><i class='bx bx-lock-alt'></i> Client Confidential</span>
+      </div>`;
+    document.getElementById('caseModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 
   const caseStudies = {
     thesiswallet: {
@@ -2178,7 +2415,7 @@
       ],
       title: 'EASEKID "BOP" PR Visual',
       subtitle: 'Cinematic interactive promotional page for Nigerian artist EASEKID',
-      overview: 'EASEKID needed a visual online presence for the "BOP" release that felt premium and cinematic — something that matched the energy of the track and could be shared as a link.',
+      overview: 'EASEKID needed a visual online presence for the "BOP" release that felt premium and cinematic, something that matched the energy of the track and could be shared as a link.',
       problem: 'Standard social media posts weren\'t cutting it. The artist needed something interactive, shareable, and visually distinctive that streaming platforms couldn\'t provide.',
       solution: 'An interactive HTML page featuring floating frosted-glass streaming platform cards arranged around a central artist image cutout on a deep-navy cinematic background. Mobile responsive, no framework.',
       process: [
@@ -2192,39 +2429,18 @@
       status: 'Live',
       link: 'https://bop-snowy.vercel.app/'
     },
-    economics: {
-      type: 'Data Visualisation · Academic',
-      images: [
-        { label: 'Slide Design', src: 'assets/ec-slide.png' },
-        { label: 'CUSUM Chart', src: 'assets/ec-chart.png' },
-        { label: 'Data Output', src: 'assets/ec-data.png' }
-      ],
-      title: 'Food Insecurity & Child Health — Research Presentation',
-      subtitle: 'B.Sc. Economics dissertation, Adeleke University (1991–2024)',
-      overview: 'Designed and built the full presentation for the final-year economics research project "Impact of Food Insecurity on Child Health Outcomes in Nigeria (1991–2024)" — including econometric results, stability tests, and policy recommendations.',
-      problem: 'Complex econometric output (CUSUM, CUSUMSQ stability tests, regression tables) needed to be communicated clearly to both academic supervisors and a general audience.',
-      solution: 'A cohesive dark navy and orange PowerPoint design system. Each slide type had a defined layout — title cards, data slides, chart slides, and conclusion frames. CUSUM/CUSUMSQ charts were formatted and embedded clearly.',
-      process: [
-        { phase: 'Data', detail: 'Ran STATA regressions, ARDL bounds tests, and CUSUM stability tests on World Bank + NBS data (1991–2024).' },
-        { phase: 'Structure', detail: 'Mapped findings into: Introduction → Literature → Methodology → Results → Conclusion.' },
-        { phase: 'Design', detail: 'Dark navy background with amber/orange accents. Consistent slide grid. Supervisor: Mr. Adediwura Olamide Michael.' },
-        { phase: 'Refine', detail: 'Added dedicated CUSUM/CUSUMSQ slide after supervisor review. Matched existing design language exactly.' }
-      ],
-      tools: ['STATA', 'PowerPoint', 'Data Visualisation', 'Econometrics'],
-      status: 'Completed · Adeleke University',
-      link: null
-    },
+    
     nesaau: {
       type: 'Dashboard Design · Web App',
       images: [
-        { label: 'Lo-Fi Wireframe', src: 'assets/ns-lofi.png' },
-        { label: 'Hi-Fi Design', src: 'assets/ns-hifi.png' },
-        { label: 'Device Mockup', src: 'assets/ns-mockup.png' }
+        { label: 'Hand-Drawn Sketch', src: 'assets/asset.png' },
+        { label: 'Hi-Fi Design', src: 'assets/asset.png' },
+        { label: 'Device Mockup', src: 'assets/asset.png' }
       ],
       title: 'NESAAU Platform',
       subtitle: 'Administrative tool for the Nigerian Economics Students\' Association, Adeleke University',
       overview: 'As Treasurer of NESAAU (2025/2026 session), I identified the need for a centralised platform to manage membership, announcements, and administrative records for the association.',
-      problem: 'All association communication and record-keeping happened via WhatsApp groups — disorganised, hard to archive, and inaccessible to new members.',
+      problem: 'All association communication and record-keeping happened via WhatsApp groups, disorganised, hard to archive, and inaccessible to new members.',
       solution: 'A web platform with a clean dashboard interface, deployed on Vercel. Designed for NESAAU members and executives to manage information in one place.',
       process: [
         { phase: 'Identify', detail: 'As Treasurer, directly experienced the problem of disorganised financial records and member communication.' },
@@ -2265,9 +2481,9 @@
     nesaau_dev: {
       type: 'Web App · React',
       images: [
-        { label: 'Lo-Fi Wireframe', src: 'assets/ns-lofi.png' },
-        { label: 'Live Screenshot', src: 'assets/ns-hifi.png' },
-        { label: 'Device Mockup', src: 'assets/ns-mockup.png' }
+        { label: 'Hand-Drawn Sketch', src: 'assets/asset.png' },
+        { label: 'Live Screenshot', src: 'assets/asset.png' },
+        { label: 'Device Mockup', src: 'assets/asset.png' }
       ],
       title: 'NESAAU Platform',
       subtitle: 'From WhatsApp chaos to a live administrative platform',
