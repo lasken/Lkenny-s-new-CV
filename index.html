@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <style>
     :root {
@@ -1736,6 +1736,24 @@
 
     <div id="uiuxPanel">
       <div class="projects-grid three-col">
+        <div class="uiux-card fade-in" onclick="openModal('toomuchcoin','uiux')" style="animation-delay:0.4s; cursor:pointer;">
+          <div class="uiux-card-img grad3" style="padding:0;">
+            <img src="og-preview.png.png" alt="Toomuchcoin" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.parentElement.innerHTML=cssMockup('Toomuchcoin')" />
+          </div>
+          <div class="uiux-card-body">
+            <div class="card-type">Agentic Commerce · Fintech</div>
+            <h4>Toomuchcoin — Datum Enterprise Platform</h4>
+            <p>Agentic commerce platform combining P2P marketplace, live crypto/stock market data, vendor showcase, and subscription management. Built and maintained as lead developer for Datum Enterprise.</p>
+            <div class="skill-tags" style="margin-bottom:16px;">
+              <span class="tag">Product Design</span><span class="tag">Appwrite</span><span class="tag">CoinGecko API</span><span class="tag">Flutterwave</span>
+            </div>
+            <div class="card-footer-row">
+              <a class="card-link" href="https://toomuchcoin.com" target="_blank" rel="noopener">
+                View Live <i class='bx bx-arrow-back' style="transform:rotate(180deg)"></i>
+              </a>
+            </div>
+          </div>
+        </div>
 
         <div class="uiux-card fade-in" onclick="openModal('nesaau','uiux')" style="animation-delay:0.4s; cursor:pointer;">
           <div class="uiux-card-img grad4" style="padding:0;">
@@ -1861,10 +1879,26 @@
 
     <div id="devPanel" style="display:none;">
       <div class="projects-grid" style="grid-template-columns:1fr;">
+        <div class="dev-card fade-in" onclick="openModal('toomuchcoin_dev','dev')" style="animation-delay:0.5s; cursor:pointer;">
+          <div>
+            <div class="dev-card-num">01 — FINTECH PLATFORM</div>
+            <h4>Toomuchcoin — Datum Enterprise</h4>
+            <p>Full-stack multi-module web platform combining a P2P marketplace, real-time crypto and stock market data (500+ assets via CoinGecko), community open forum, vendor showcase with community voting, identity verification, and subscription management. Built as lead developer for Datum Enterprise — live and actively maintained.</p>
+            <div class="skill-tags" style="margin-top:12px;">
+              <span class="tag">Vanilla JS</span><span class="tag">Appwrite</span><span class="tag">CoinGecko API</span><span class="tag">Flutterwave</span><span class="tag">IvoryPay</span><span class="tag">OneSignal</span><span class="tag">Vercel</span>
+            </div>
+          </div>
+          <div class="dev-card-action">
+            <span class="status-badge live">● Live</span>
+            <a class="card-link" href="https://toomuchcoin.com" target="_blank" rel="noopener">
+              Visit <i class='bx bx-link-external'></i>
+            </a>
+          </div>
+        </div>
 
         <div class="dev-card fade-in" onclick="openModal('nesaau_dev','dev')" style="cursor:pointer;">
           <div>
-            <div class="dev-card-num">01 — WEB APP</div>
+            <div class="dev-card-num">02 — WEB APP</div>
             <h4>NESAAU Platform</h4>
             <p>A professional administrative web platform for NESAAU members, designed, built, and deployed fully independently. React-based, deployed on Vercel with Speed Insights enabled.</p>
             <div class="skill-tags">
@@ -1881,7 +1915,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('currency','dev')" style="animation-delay:0.1s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">02 — TOOL</div>
+            <div class="dev-card-num">03 — TOOL</div>
             <h4>Currency Converter</h4>
             <p>Real-time currency conversion web app with offline detection. Supports conversion between all major and emerging market currencies including Naira. Works seamlessly on and offline.</p>
             <div class="skill-tags">
@@ -1898,7 +1932,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('market','dev')" style="animation-delay:0.2s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">03 — FINTECH</div>
+            <div class="dev-card-num">04 — FINTECH</div>
             <h4>Market Insight — Nigerian Finance App</h4>
             <p>An interactive app unlocking insights into the Nigerian market. Built to help local investors and everyday users make better financial decisions with live data and clear visualisations.</p>
             <div class="skill-tags">
@@ -1915,7 +1949,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('centrepoint_dev','dev')" style="animation-delay:0.3s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">04 — E-COMMERCE</div>
+            <div class="dev-card-num">05 — E-COMMERCE</div>
             <h4>Centrepoint Supermarket Store</h4>
             <p>Full e-commerce site for an Ibadan supermarket — Made a user + admin website for Centrepoint supermarket. Features a cart drawer, WhatsApp order integration, delivery/pickup toggle, and time-slot selection for local delivery.</p>
             <div class="skill-tags">
@@ -1929,7 +1963,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('thesiswallet_dev','dev')" style="animation-delay:0.4s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">05 — REACT APP</div>
+            <div class="dev-card-num">06 — REACT APP</div>
             <h4>ThesisWallet — Student Finance Tracker</h4>
             <p>React single-file component with 5 tabs: Home, Project, Wallet, Pro Lab, and Profile. Built for Nigerian final-year students tracking thesis milestones and personal budgets. Fully client-side with localStorage persistence.</p>
             <div class="skill-tags">
@@ -1943,7 +1977,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('easekid_dev','dev')" style="animation-delay:0.5s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">06 — CREATIVE</div>
+            <div class="dev-card-num">07 — CREATIVE</div>
             <h4>EASEKID "BOP" — Interactive PR Visual</h4>
             <p>Cinematic HTML promotional experience for Nigerian music artist EASEKID. Deep-blue background, frosted-glass streaming platform cards, floating artist image, and mobile-responsive layout. Creative direction end-to-end.</p>
             <div class="skill-tags">
@@ -2452,6 +2486,33 @@
       status: 'Live',
       link: 'https://nesaau.vercel.app/'
     },
+    toomuchcoin: {
+      type: 'Agentic Commerce · Fintech · UI/UX',
+      images: [
+        { label: 'Landing Page', src: 'assets/tmc-land.png' },
+        { label: 'Marketplace UI', src: 'assets/tmc-market.png' },
+        { label: 'Crypto Market View', src: 'assets/tmc-crypto.png' },
+        { label: 'Profile Dashboard', src: 'assets/tmc-profile.png' }
+      ],
+      title: 'Toomuchcoin',
+      subtitle: 'Agentic commerce: Your passport to trade & access the globe 🌎',
+      overview: 'Toomuchcoin is a multi-module agentic commerce platform built for Datum Enterprise — combining a live P2P marketplace, real-time crypto and stock market data for 500+ assets, a community open forum, vendor showcase system, identity verification, and subscription management. I was brought in as lead developer and handle both the design and engineering of the entire platform.',
+      problem: 'Datum Enterprise needed a unified digital platform where users could trade goods and services peer-to-peer, track live financial markets (crypto and stocks), and build a community — all in one place. No existing off-the-shelf solution fit the Nigerian market context, community voting features, and Naira/USD dual-currency pricing requirements.',
+      solution: 'A vanilla JS application with a multi-page SPA architecture, Appwrite as the backend (auth, database, storage, functions), CoinGecko API for 500+ live crypto prices, Yahoo Finance (proxied) for stock data, Flutterwave for card/bank payments, IvoryPay for crypto payments, and OneSignal for push notifications. The UI uses a warm editorial design system (DM Serif Display + DM Sans) with a cream/off-white paper aesthetic.',
+      process: [
+        { phase: 'Discovery', detail: 'Worked directly with Datum Enterprise to map out the 5 core modules: Identity (auth/profile), Commerce (P2P marketplace), Markets (crypto/stocks), Vendors (local business showcase), and Subscription (Pro tier gating).' },
+        { phase: 'Architecture', detail: 'Chose vanilla HTML/CSS/JS (no framework) for maximum control, portability, and speed. Single HTML file with a state machine (S object) driving all rendering. Appwrite handles backend — auth, database, storage, and serverless functions.' },
+        { phase: 'Design System', detail: 'Defined CSS variables for the full design token set: cream paper background, editorial serif headings (DM Serif Display), clean sans body (DM Sans), and a strict colour palette — green for success, amber for gold/featured, purple for Pro, orange for brand.' },
+        { phase: 'Marketplace', detail: 'Built the P2P order board with category filtering, listing cards, a connection request system, deal completion flow with commission tracking (2% platform fee), buyer confirmation, and a seller review system.' },
+        { phase: 'Crypto Markets', detail: 'Integrated CoinGecko API (500+ assets, paginated 5 pages × 100 assets), with search, pagination, watchlist (Appwrite), deep-dive charts (mock bars + real metadata), and the Datum List — a curated Pro-only tracker with YTD, 5Y, 10Y performance columns and a "Since Joined" personal return metric.' },
+        { phase: 'Payments', detail: 'Integrated Flutterwave (card/bank) for direct checkout and IvoryPay (USDT crypto) via an Appwrite serverless function to proxy the secret key. Manual bank transfer option also available with admin review flow.' },
+        { phase: 'Notifications', detail: 'OneSignal push notification system for listing alerts, connection requests, deal updates, and forum replies. User can configure category preferences from their profile.' },
+        { phase: 'Deployment', detail: 'Deployed on Vercel with Speed Insights. Config managed via config.js (environment variables). Prices.json for daily manual stock price overrides. Actively maintained and updated.' }
+      ],
+      tools: ['Vanilla JS', 'HTML/CSS', 'Appwrite', 'CoinGecko API', 'Yahoo Finance API', 'Flutterwave', 'IvoryPay', 'OneSignal', 'Vercel', 'Lucide Icons'],
+      status: 'Live',
+      link: 'https://toomuchcoin.com'
+    },
     studentfinance: {
       type: 'Fintech UX · Mobile',
       images: [
@@ -2478,6 +2539,33 @@
   };
 
   const devStudies = {
+    toomuchcoin_dev: {
+      type: 'Fintech Platform · Lead Developer',
+      images: [
+        { label: 'Landing Page', src: 'assets/tmc-land.png' },
+        { label: 'Marketplace Board', src: 'assets/tmc-market.png' },
+        { label: 'Crypto Market Table', src: 'assets/tmc-crypto.png' },
+        { label: 'Profile & Inbox', src: 'assets/tmc-profile.png' }
+      ],
+      title: 'Toomuchcoin',
+      subtitle: 'Agentic commerce: Your passport to trade & access the globe 🌎',
+      overview: 'Toomuchcoin is a live multi-module web platform built for Datum Enterprise — a company building agentic commerce infrastructure for Nigerian and global markets. I was assigned as lead developer and am responsible for design, engineering, deployment, and ongoing maintenance of the entire platform.',
+      problem: 'Datum Enterprise needed a unified platform that combined peer-to-peer trading, real-time financial market data, a community forum, local vendor discovery, identity verification, and a subscription paywall — all in a single product that felt premium, loaded fast, and worked on low-end Nigerian devices.',
+      solution: 'A zero-dependency vanilla JS SPA (single HTML file, ~4,000 lines of production code) with Appwrite as the full backend stack. State is managed via a single S object. Rendering is driven by a central render() function that swaps innerHTML based on S.page. Payments via Flutterwave (card/bank) and IvoryPay (crypto, proxied through Appwrite Functions). 500+ live crypto assets from CoinGecko. Push notifications via OneSignal. Deployed on Vercel.',
+      process: [
+        { phase: 'Briefing', detail: 'Datum Enterprise outlined the vision: one platform, five modules. I translated the brief into a technical architecture plan — single-file SPA, Appwrite backend, CoinGecko for markets, Flutterwave + IvoryPay for payments.' },
+        { phase: 'State Machine', detail: 'Built a central S{} state object driving all UI. Every user interaction updates S and calls render() — no React, no Vue, no overhead. Full control over every pixel and every function call.' },
+        { phase: 'Appwrite Setup', detail: 'Configured Appwrite Cloud with 10 collections: profiles, orders, chat, watchlist, connections, verifications, subscription, reviews, notifications, notif_prefs. Storage bucket for user avatars and listing photos.' },
+        { phase: 'Marketplace', detail: 'P2P order board with category filtering (10 categories), listing creation with image upload (3 photos max), connection request system, accept/decline flow with reason selection, deal-done marking, 2% platform commission tracking, buyer confirmation, and a 5-star review system.' },
+        { phase: 'Crypto Markets', detail: 'CoinGecko integration fetching 500 assets across 5 paginated API calls. Search, pagination (20/page), watchlist persistence, deep-dive view with mock historical charts, and the Datum List — a curated Pro tracker with YTD, 5Y, 10Y, and "Since Joined" performance columns using Yahoo Finance data proxied via AllOrigins.' },
+        { phase: 'Vendor Showcase', detail: 'Community-voted fan favourite system per city and category. Quarterly voting mechanic, storefront showcase with photos and reviews, direct WhatsApp connect link, and a vendor waitlist flow for businesses not yet featured.' },
+        { phase: 'Payments', detail: 'Flutterwave SDK for card/bank checkout. IvoryPay for USDT payments — secret key protected via Appwrite Functions (serverless proxy). Manual bank transfer flow with admin review. Subscription status gates Pro features across all modules.' },
+        { phase: 'Notifications', detail: 'OneSignal push notifications for: new listing in followed categories, connection request received, deal accepted/completed, commission verified, forum replies. User controls category preferences from profile.' },
+        { phase: 'Security & Deployment', detail: 'config.js pattern for environment variables (never hardcoded). Appwrite role-based permissions. Admin panel gated by hardcoded ADMIN_ID. Deployed on Vercel with Speed Insights. prices.json for daily manual stock price overrides without redeployment.' }
+      ],
+      tools: ['Vanilla JS (zero dependencies)', 'HTML/CSS', 'Appwrite (Auth, DB, Storage, Functions)', 'CoinGecko API', 'Yahoo Finance (AllOrigins proxy)', 'Flutterwave SDK', 'IvoryPay (serverless proxy)', 'OneSignal', 'Lucide Icons', 'Vercel'],
+      link: 'https://toomuchcoin.com'
+    },
     nesaau_dev: {
       type: 'Web App · React',
       images: [
