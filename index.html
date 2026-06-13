@@ -1862,30 +1862,19 @@
           </div>
         </div>
 
-        <div class="uiux-card fade-in" onclick="openModal('centrepoint','uiux')" style="animation-delay:0.1s; cursor:pointer;">
-          <div class="uiux-card-img grad2">
-            <div class="mock-frame">
-              <div class="mock-bar"><div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div></div>
-              <div class="mock-body">
-                <div class="mock-line w80 accent"></div>
-                <div class="mock-line w60"></div>
-                <div style="display:flex;gap:6px;margin-top:6px;">
-                  <div style="width:45%;height:40px;border-radius:6px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.25);"></div>
-                  <div style="width:45%;height:40px;border-radius:6px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);"></div>
-                </div>
-                <div class="mock-line w40"></div>
-              </div>
-            </div>
+        <div class="uiux-card fade-in" onclick="openModal('lkennyos','uiux')" style="animation-delay:0.1s; cursor:pointer;">
+          <div class="uiux-card-img grad4" style="padding:0;">
+            <img src="assets/los-kaykay.png" alt="LKENNY OS" style="width:100%;height:100%;object-fit:cover;object-position:top;" onerror="this.parentElement.innerHTML=cssMockup('LKENNY OS')" />
           </div>
           <div class="uiux-card-body">
-            <div class="card-type">E-Commerce UX</div>
-            <h4>Centrepoint Supermarket — E-Commerce Site</h4>
-            <p>Full e-commerce experience for a local Ibadan supermarket. Cart drawer with WhatsApp order generation, delivery/pickup toggle, and time-slot booking.</p>
+            <div class="card-type">Personal OS · AI Voice Assistant</div>
+            <h4>LKENNY OS — Personal Operating System</h4>
+            <p>A self-contained personal dashboard with 9+ modules — task management, deep work timer, health tracking, AI vocabulary builder, idea vault, wealth tracker — plus KayKay, a fully voice-controlled AI assistant with wake-word detection, memory, and natural conversation.</p>
             <div class="skill-tags" style="margin-bottom:16px;">
-              <span class="tag">UX Design</span><span class="tag">HTML/CSS/JS</span><span class="tag">WhatsApp API</span>
+              <span class="tag">React</span><span class="tag">Voice AI</span><span class="tag">Multi-Module UX</span><span class="tag">Dark UI</span>
             </div>
             <div class="card-footer-row">
-              <span class="no-link-badge">Client Project · Private</span>
+              <span class="no-link-badge">Private · In Use</span>
             </div>
           </div>
         </div>
@@ -1914,9 +1903,24 @@
 
     <div id="devPanel" style="display:none;">
       <div class="projects-grid" style="grid-template-columns:1fr;">
+        <div class="dev-card fade-in" onclick="openModal('lkennyos_dev','dev')" style="cursor:pointer;">
+          <div>
+            <div class="dev-card-num">01 — PERSONAL OS · AI ASSISTANT</div>
+            <h4>LKENNY OS — Personal Operating System</h4>
+            <p>A single-file React application functioning as a complete personal operating system — task management, deep work sessions, health tracking, mental check-ins, idea capture, wealth tracking, content pipeline, daily reflection, vocabulary building, job hunting, and a full voice-controlled AI assistant (KayKay) with wake-word detection, persistent memory, GitHub Gist sync, and multi-provider AI integration (Groq, Gemini, Anthropic, OpenRouter).</p>
+            <div class="skill-tags" style="margin-top:12px;">
+              <span class="tag">React 18</span><span class="tag">Web Speech API</span><span class="tag">LLM Integration</span><span class="tag">GitHub Sync</span><span class="tag">Voice UI</span><span class="tag">localStorage</span>
+            </div>
+          </div>
+          <div class="dev-card-action">
+            <span class="status-badge" style="background:rgba(245,158,11,0.1); color:var(--accent); border:1px solid rgba(245,158,11,0.2);">● Private</span>
+            <span style="font-size:12px; color:var(--muted);">In active personal use</span>
+          </div>
+        </div>
+
         <div class="dev-card fade-in" onclick="openModal('toomuchcoin_dev','dev')" style="animation-delay:0.5s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">01 — FINTECH PLATFORM</div>
+            <div class="dev-card-num">02 — FINTECH PLATFORM</div>
             <h4>Toomuchcoin — Datum Enterprise</h4>
             <p>Full-stack multi-module web platform combining a P2P marketplace, real-time crypto and stock market data (500+ assets via CoinGecko), community open forum, vendor showcase with community voting, identity verification, and subscription management. Built as lead developer for Datum Enterprise — live and actively maintained.</p>
             <div class="skill-tags" style="margin-top:12px;">
@@ -1933,7 +1937,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('taskflow_dev','dev')" style="cursor:pointer;">
           <div>
-            <div class="dev-card-num">02 — INTERNAL TOOL · SAAS</div>
+            <div class="dev-card-num">03 — INTERNAL TOOL · SAAS</div>
             <h4>TaskFlow — Datum Team Task Manager</h4>
             <p>Role-based task management web app built for Datum's internal team operations. Admin dashboard for creating and managing tasks, member dashboard for tracking assignments, PIN-based authentication, WhatsApp notification integration, activity log, and strict task progression enforcement (pending → ongoing → done). Deployed on Vercel with Supabase as backend.</p>
             <div class="skill-tags" style="margin-top:12px;">
@@ -1950,7 +1954,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('nesaau_dev','dev')" style="cursor:pointer;">
           <div>
-            <div class="dev-card-num">03 — WEB APP</div>
+            <div class="dev-card-num">04 — WEB APP</div>
             <h4>NESAAU Platform</h4>
             <p>A professional administrative web platform for NESAAU members, designed, built, and deployed fully independently. React-based, deployed on Vercel with Speed Insights enabled.</p>
             <div class="skill-tags">
@@ -1967,7 +1971,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('currency','dev')" style="animation-delay:0.1s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">04 — TOOL</div>
+            <div class="dev-card-num">05 — TOOL</div>
             <h4>Currency Converter</h4>
             <p>Real-time currency conversion web app with offline detection. Supports conversion between all major and emerging market currencies including Naira. Works seamlessly on and offline.</p>
             <div class="skill-tags">
@@ -1984,7 +1988,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('market','dev')" style="animation-delay:0.2s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">05 — FINTECH</div>
+            <div class="dev-card-num">06 — FINTECH</div>
             <h4>Market Insight — Nigerian Finance App</h4>
             <p>An interactive app unlocking insights into the Nigerian market. Built to help local investors and everyday users make better financial decisions with live data and clear visualisations.</p>
             <div class="skill-tags">
@@ -2001,7 +2005,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('centrepoint_dev','dev')" style="animation-delay:0.3s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">06 — E-COMMERCE</div>
+            <div class="dev-card-num">07 — E-COMMERCE</div>
             <h4>Centrepoint Supermarket Store</h4>
             <p>Full e-commerce site for an Ibadan supermarket — Made a user + admin website for Centrepoint supermarket. Features a cart drawer, WhatsApp order integration, delivery/pickup toggle, and time-slot selection for local delivery.</p>
             <div class="skill-tags">
@@ -2015,7 +2019,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('thesiswallet_dev','dev')" style="animation-delay:0.4s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">07 — REACT APP</div>
+            <div class="dev-card-num">08 — REACT APP</div>
             <h4>ThesisWallet — Student Finance Tracker</h4>
             <p>React single-file component with 5 tabs: Home, Project, Wallet, Pro Lab, and Profile. Built for Nigerian final-year students tracking thesis milestones and personal budgets. Fully client-side with localStorage persistence.</p>
             <div class="skill-tags">
@@ -2029,7 +2033,7 @@
 
         <div class="dev-card fade-in" onclick="openModal('easekid_dev','dev')" style="animation-delay:0.5s; cursor:pointer;">
           <div>
-            <div class="dev-card-num">08 — CREATIVE</div>
+            <div class="dev-card-num">09 — CREATIVE</div>
             <h4>EASEKID "BOP" — Interactive PR Visual</h4>
             <p>Cinematic HTML promotional experience for Nigerian music artist EASEKID. Deep-blue background, frosted-glass streaming platform cards, floating artist image, and mobile-responsive layout. Creative direction end-to-end.</p>
             <div class="skill-tags">
@@ -2442,6 +2446,36 @@
   }
 
   const caseStudies = {
+    lkennyos: {
+      type: 'Personal Operating System · AI Voice Assistant',
+      images: [
+        { label: 'Command Center', src: 'assets/los-command.png' },
+        { label: 'KayKay Voice Assistant', src: 'assets/los-kaykay.png' },
+        { label: 'Deep Work Timer', src: 'assets/los-deepwork.png' },
+        { label: 'Lexicon — Vocabulary', src: 'assets/los-lexicon.png' },
+        { label: 'Momentum — Habit Heatmap', src: 'assets/los-momentum.png' },
+        { label: 'Health & Hygiene', src: 'assets/los-health.png' },
+        { label: 'Idea Vault', src: 'assets/los-ideas.png' },
+        { label: 'Wealth Tracker', src: 'assets/los-wealth.png' }
+      ],
+      title: 'LKENNY OS',
+      subtitle: 'A complete personal operating system — 9+ modules, one voice assistant, zero backend',
+      overview: 'LKENNY OS is a self-contained personal operating system — a single React application bringing together everything I need to run my day: tasks, deep work, health, mental check-ins, ideas, wealth, content planning, reflection, vocabulary, job hunting, and a full voice-controlled AI assistant called KayKay. It is currently private and in active daily use as my own productivity infrastructure.',
+      problem: 'I was juggling a dozen different apps to manage my life — a to-do app, a notes app, a separate journal, a vocabulary app, a finance tracker, and more. None of them talked to each other, none of them knew anything about me, and switching between them constantly broke my focus.',
+      solution: 'One unified, dark OLED-themed dashboard with 9+ purpose-built modules sharing the same local data layer. On top sits KayKay — a voice-first AI assistant with wake-word detection ("Hey KayKay"), persistent cross-session memory, and the ability to take real actions (add tasks, log water, capture ideas, start focus sessions) just by talking to it.',
+      process: [
+        { phase: 'Self-Audit', detail: 'Mapped every tool I was using daily and identified what I actually used vs abandoned — became the module list: Command Center, Tasks, Deep Work, Health, Mental Check-in, Reflection, Momentum, History, Ideas, Jobs, Wealth, Content, Notes, and Lexicon.' },
+        { phase: 'Architecture', detail: 'Built as a single HTML file with React 18 via CDN and Babel standalone — zero build step, fully portable, runs offline. All data in localStorage via a thin storage wrapper.' },
+        { phase: 'KayKay Voice Engine', detail: 'Built a full voice assistant using the Web Speech API for recognition and synthesis. Implemented continuous wake-word listening, a floating orb UI, and a full-screen page with waveform visualisation reacting to real microphone input.' },
+        { phase: 'AI Action System', detail: 'KayKay takes real actions — adding tasks, logging water, capturing ideas, logging weight, starting timers, navigating modules — driven by structured JSON from the LLM, with confirmation steps for data-modifying actions.' },
+        { phase: 'Multi-Provider AI', detail: 'Built an abstraction supporting Groq, Gemini, Anthropic Claude, and OpenRouter so the OS runs on free-tier keys — used across the reading companion, vocabulary generator, mental check-in analyser, and career AI.' },
+        { phase: 'Module Build-Out', detail: 'Built each module with its own logic — a 50-minute deep work timer with mode-locking and confetti, a health tracker with BMI and weight trend charts, an idea vault with tag filtering, a wealth tracker, a content pipeline, and Lexicon with AI vocabulary plus a Gutenberg-powered reading companion.' },
+        { phase: 'Sync & Notifications', detail: 'Implemented GitHub Gist-based cross-device sync (auto-push 3 seconds after any change) and a daily notification scheduler — morning planning, vocab drops, focus reminders, hydration checks, and evening reflection — all spoken aloud by KayKay.' }
+      ],
+      tools: ['React 18', 'Babel Standalone', 'Web Speech API', 'Web Audio API', 'localStorage', 'Groq / Gemini / Anthropic / OpenRouter', 'GitHub Gist API', 'Gutendex'],
+      status: 'Private — In Use',
+      link: null
+    },
     thesiswallet: {
       type: 'Mobile App Design · UI/UX',
       images: [
@@ -2465,31 +2499,6 @@
       ],
       tools: ['Figma', 'React', 'localStorage', 'VS Code'],
       status: 'In Development',
-      link: null
-    },
-    centrepoint: {
-      type: 'E-Commerce UX · Client Project',
-      images: [
-        { label: 'Lo-Fi Wireframe', src: 'assets/cp-lofi.png' },
-        { label: 'Hi-Fi Design', src: 'assets/cp-hifi.png' },
-        { label: 'Device Mockup', src: 'assets/cp-mockup.png' },
-        { label: 'Cart Flow', src: 'assets/cp-flow.png' }
-      ],
-      title: 'Centrepoint Supermarket',
-      subtitle: 'Local Ibadan supermarket e-commerce experience',
-      overview: 'Centrepoint Supermarket needed an online presence that let customers browse products and place orders, but had no technical infrastructure or budget for a backend. The entire solution had to live in a single HTML file.',
-      problem: 'A physical supermarket in Ibadan losing customers to competitors with online ordering. No IT team, no server, no CMS. Just a phone and WhatsApp.',
-      solution: 'A self-contained HTML/CSS/JS e-commerce site with a cart drawer, WhatsApp order generation (auto-formats cart into a WhatsApp message), delivery/pickup toggle, and time-slot selection. Product images use a lightweight PRODUCTS array.',
-      process: [
-        { phase: 'Discovery', detail: 'Visited the store, spoke with the owner, mapped the product categories and order process.' },
-        { phase: 'Define', detail: 'Core constraint: single file, no backend. WhatsApp as the order channel.' },
-        { phase: 'Lo-Fi', detail: 'Wireframed product grid, cart drawer, checkout flow on paper.' },
-        { phase: 'Hi-Fi', detail: 'Designed directly in VS Code with live preview, warm brand colours, clean card layout.' },
-        { phase: 'Build', detail: 'Vanilla HTML/CSS/JS. Named global handleImgErr() for image fallbacks. Cart persists in session.' },
-        { phase: 'Deliver', detail: 'Handed over single file to client, deployable anywhere, maintenance needed.' }
-      ],
-      tools: ['HTML', 'CSS', 'Vanilla JS', 'WhatsApp API', 'VS Code'],
-      status: 'Client Private',
       link: null
     },
     easekid: {
@@ -2617,6 +2626,36 @@
   };
 
   const devStudies = {
+    lkennyos_dev: {
+      type: 'Single-File React App · Voice AI · Personal Infrastructure',
+      images: [
+        { label: 'Command Center', src: 'assets/los-command.png' },
+        { label: 'KayKay Voice Assistant', src: 'assets/los-kaykay.png' },
+        { label: 'Deep Work Timer', src: 'assets/los-deepwork.png' },
+        { label: 'Lexicon — Vocabulary', src: 'assets/los-lexicon.png' },
+        { label: 'Momentum — Habit Heatmap', src: 'assets/los-momentum.png' },
+        { label: 'Health & Hygiene', src: 'assets/los-health.png' },
+        { label: 'Idea Vault', src: 'assets/los-ideas.png' },
+        { label: 'Wealth Tracker', src: 'assets/los-wealth.png' }
+      ],
+      title: 'LKENNY OS',
+      subtitle: 'A complete personal operating system — 9+ modules, one voice assistant, zero backend',
+      overview: 'LKENNY OS is the most ambitious personal project I\'ve built — a complete operating system for my daily life, packed into a single self-contained HTML/React file. It runs entirely client-side, requires no backend by default, and includes a genuinely useful voice AI assistant I talk to throughout the day.',
+      problem: 'As a solo builder juggling design, development, content creation, and self-improvement goals, I needed one system to hold everything — tasks, focus sessions, health, finances, ideas, vocabulary, reflection — without context-switching between a dozen disconnected apps, each with its own login and data silo.',
+      solution: 'A zero-dependency-install React app (CDN + Babel standalone) with a modular architecture: each life domain is its own component — CommandCenter, TasksModule, DeepWorkModule, HealthModule, TherapyModule, IdeaVault, WealthModule, ContentModule, ReflectModule, LexiconModule, JobHunterModule, MomentumModule, NotesModule, HistoryModule — all sharing one localStorage-backed storage layer and a unified dark OLED design system.',
+      process: [
+        { phase: 'Storage Layer', detail: 'Built a tiny S object wrapping localStorage with JSON serialization, namespaced under "pos_" keys. All 14+ modules read/write through this single interface, making the entire app portable and inspectable.' },
+        { phase: 'Audio & Voice Engine', detail: 'Custom Audio object using the Web Audio API for UI sound feedback, and a KayKay voice engine wrapping SpeechSynthesis with natural-voice preference selection.' },
+        { phase: 'Wake Word System', detail: 'Continuous background speech recognition listening for "Hey KayKay" variations via the Web Speech API, auto-restarting on errors/timeouts to maintain always-listening behaviour.' },
+        { phase: 'Conversation Engine', detail: 'processKayKayTranscript() sends conversation history plus a dynamically constructed system prompt — including user profile, current stats, and a memory summary built from past exchanges — to the selected LLM, parsing a structured JSON response with both spoken text and an optional action.' },
+        { phase: 'Action Execution', detail: 'Actions (add_task, log_water, add_idea, log_weight, navigate, start_timer) execute through a shared executeAction function. Data-modifying actions require a spoken confirmation step via a dedicated confirm UI state.' },
+        { phase: 'Vision & Reading Companion', detail: 'Added image recognition — show KayKay a photo and get a spoken description plus insight, using vision-capable models via Groq or Anthropic. For Lexicon\'s Books tab, integrated Project Gutenberg (Gutendex API) for classics, with the LLM building structured daily reading sessions for any book.' },
+        { phase: 'Deep Work Timer', detail: 'Built a 50-minute focus timer with 5 modes (Build, Study, Design, Touch Grass, Playtime), a circular SVG progress ring with colour-shifting phases, confetti on completion, and per-mode daily locking.' },
+        { phase: 'Sync & History', detail: 'GitHub Gist-based sync with auto-debounced push 3 seconds after any write, manual push/pull, and credential-based restore for new devices. History module generates AI-written end-of-day summaries from real logged data, plus a 30-day weighted activity heatmap.' }
+      ],
+      tools: ['React 18 (CDN)', 'Babel Standalone', 'Web Speech API', 'Web Audio API', 'localStorage', 'Groq API', 'Gemini API', 'Anthropic Claude API', 'OpenRouter API', 'GitHub Gist API', 'Gutendex (Project Gutenberg)', 'Browser Notifications API'],
+      link: null
+    },
     toomuchcoin_dev: {
       type: 'Fintech Platform · Lead Developer',
       images: [
@@ -2872,7 +2911,7 @@
       galleryHTML = `
         <div class="modal-divider"></div>
         <div class="modal-section">
-          <h4><i class='bx bx-image-alt'></i> Design Evidence</h4>
+          <h4><i class='bx bx-image-alt'></i> ${type === 'uiux' && (d.title === 'LKENNY OS') ? 'Inside LKENNY OS' : 'Design Evidence'}</h4>
           <div class="modal-gallery">${items}</div>
         </div>`;
     }
