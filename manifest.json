@@ -1,0 +1,20 @@
+{
+  "name": "Lasisi Kenny — Portfolio",
+  "short_name": "LKenny",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#f59e0b",
+  "icons": [
+    {
+      "src": "cvlogo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "cvlogo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
